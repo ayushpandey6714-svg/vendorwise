@@ -1,0 +1,18 @@
+{
+  "provider": "openrouter",
+  "configured_model": "baidu/ernie-5.5-flash-preview:free",
+  "mode": "live",
+  "steps": [
+    {
+      "step": "create",
+      "status": 201
+    },
+    {
+      "step": "upload",
+      "status": 201
+    }
+  ],
+  "analysis_id": "2469d282-11aa-4bb9-a413-f34cb9a81c5d",
+  "status": "failed",
+  "error_type": "VendorWiseError"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "backend_mode": "live",
+  "provider_key_configured": false,
+  "openrouter_setup_warning_present": true,
+  "live_provider_called": false
+}

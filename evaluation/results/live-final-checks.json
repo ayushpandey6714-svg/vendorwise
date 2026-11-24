@@ -1,0 +1,35 @@
+{
+  "source_analysis": "88791277-b63b-4be0-8250-b15e0e9d6210",
+  "model": "openrouter/free",
+  "extraction": "Previously extracted by live provider during user UI session; not re-extracted here.",
+  "checks": {
+    "comparison": "PASS: Vendor C at 10 days",
+    "what_if": "PASS: Vendor B at 14 days; INR 30000 savings",
+    "report": "PASS: report endpoint returns attachment and expected vendor",
+    "qa": "PASS: live answer with validated battery citations; human meaning review follows"
+  },
+  "answer": {
+    "answer": "Yes, but only for manufacturing defects and for 12 months.",
+    "citations": [
+      {
+        "citation_id": "6569c801-8e10-447b-b6b6-83e986ef8b57:p2:c0",
+        "document_id": "6569c801-8e10-447b-b6b6-83e986ef8b57",
+        "filename": "vendor_b.pdf",
+        "page": 2,
+        "text": "SYNTHETIC / FOR PORTFOLIO DEMONSTRATION ONLY\nPage 2\n VENDORWISE / SYNTHETIC DEMO\nVendor B | Warranty and delivery terms\nSample reference: vendor_b. No real customer or supplier data.\nWarranty duration: 36 months from delivery.\nWarranty service: onsite. Exclusions: accidental damage, liquid damage and misuse. Battery replacement is\ncovered for manufacturing defects for 12 months.\nDelivery: within 12 calendar days after receipt of purchase order and full payment.\nDelivery address must be within the supplier's city. Site access must be available.\nThis document is synthetic training data. It is not a commercial offer or tax advice."
+      }
+    ],
+    "evidence_absent": false,
+    "conflict": false,
+    "activity": [
+      {
+        "tool": "search_documents",
+        "outcome": "Retrieved 1 page passages."
+      }
+    ],
+    "calculations": [],
+    "comparison": null,
+    "mode": "live",
+    "latency_ms": 14192.61
+  }
+}

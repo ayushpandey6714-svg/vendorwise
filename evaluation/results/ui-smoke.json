@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "backend": "real localhost HTTP",
+  "frontend": "Streamlit AppTest (headless)",
+  "steps": [
+    "create",
+    "upload 3 PDFs",
+    "extract",
+    "compare C",
+    "what-if B saves INR 30000",
+    "Q&A page 2 citations",
+    "report"
+  ],
+  "mode": "fixture",
+  "embeddings": "tfidf",
+  "browser_visual_test": false
+}

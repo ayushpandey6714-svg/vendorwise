@@ -1,0 +1,545 @@
+{
+  "timestamp_utc": "2026-11-23T10:10:05.090296+00:00",
+  "split": "dev",
+  "mode": "fixture",
+  "embeddings": "fastembed",
+  "cases_passed": 20,
+  "cases_total": 20,
+  "metrics": {
+    "fixture_field_consistency": {
+      "passed": 24,
+      "total": 24
+    },
+    "calculation_assertions": {
+      "passed": 15,
+      "total": 15
+    },
+    "recommendation_cases": {
+      "passed": 4,
+      "total": 4
+    },
+    "requirement_offer_status": {
+      "passed": 6,
+      "total": 6
+    },
+    "retrieval_expected_passages": {
+      "passed": 7,
+      "total": 7
+    },
+    "answerability_cases": {
+      "passed": 2,
+      "total": 2
+    },
+    "citation_validity": {
+      "passed": 1,
+      "total": 1
+    },
+    "support_passage_proxy": {
+      "passed": 1,
+      "total": 1
+    },
+    "whatif_assertions": {
+      "passed": 2,
+      "total": 2
+    }
+  },
+  "median_case_latency_ms": 399.375,
+  "human_answer_support": "Not scored; review answers against cited passages manually.",
+  "live_model_quality": "Not measured",
+  "records": [
+    {
+      "id": "D01",
+      "kind": "extraction",
+      "checks": [
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 1024.16,
+      "passed": true
+    },
+    {
+      "id": "D02",
+      "kind": "extraction",
+      "checks": [
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 323.71,
+      "passed": true
+    },
+    {
+      "id": "D03",
+      "kind": "extraction",
+      "checks": [
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 312.98,
+      "passed": true
+    },
+    {
+      "id": "D04",
+      "kind": "calculation",
+      "checks": [
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 310.89,
+      "passed": true
+    },
+    {
+      "id": "D05",
+      "kind": "calculation",
+      "checks": [
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 321.58,
+      "passed": true
+    },
+    {
+      "id": "D06",
+      "kind": "calculation",
+      "checks": [
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 324.16,
+      "passed": true
+    },
+    {
+      "id": "D07",
+      "kind": "calculation",
+      "checks": [
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 556.68,
+      "passed": true
+    },
+    {
+      "id": "D08",
+      "kind": "calculation",
+      "checks": [
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 303.1,
+      "passed": true
+    },
+    {
+      "id": "D09",
+      "kind": "comparison",
+      "checks": [
+        {
+          "metric": "recommendation_cases",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 794.49,
+      "passed": true
+    },
+    {
+      "id": "D10",
+      "kind": "comparison",
+      "checks": [
+        {
+          "metric": "recommendation_cases",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 452.78,
+      "passed": true
+    },
+    {
+      "id": "D11",
+      "kind": "comparison",
+      "checks": [
+        {
+          "metric": "recommendation_cases",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 421.95,
+      "passed": true
+    },
+    {
+      "id": "D12",
+      "kind": "comparison",
+      "checks": [
+        {
+          "metric": "recommendation_cases",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 429.45,
+      "passed": true
+    },
+    {
+      "id": "D13",
+      "kind": "retrieval",
+      "checks": [
+        {
+          "metric": "retrieval_expected_passages",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "retrieved_ids": [
+        "e655369e-62ca-43a1-bfd6-9eaca458be55:p2:c0",
+        "e655369e-62ca-43a1-bfd6-9eaca458be55:p1:c0"
+      ],
+      "latency_ms": 835.18,
+      "passed": true
+    },
+    {
+      "id": "D14",
+      "kind": "retrieval",
+      "checks": [
+        {
+          "metric": "retrieval_expected_passages",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "retrieved_ids": [
+        "669155f6-862a-46ab-8613-bd33247df589:p2:c0",
+        "669155f6-862a-46ab-8613-bd33247df589:p1:c0"
+      ],
+      "latency_ms": 358.8,
+      "passed": true
+    },
+    {
+      "id": "D15",
+      "kind": "retrieval",
+      "checks": [
+        {
+          "metric": "retrieval_expected_passages",
+          "passed": true
+        },
+        {
+          "metric": "retrieval_expected_passages",
+          "passed": true
+        },
+        {
+          "metric": "retrieval_expected_passages",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "retrieved_ids": [
+        "361f4172-676f-4b29-a7c3-bfc33bb4909f:p2:c0",
+        "361f4172-676f-4b29-a7c3-bfc33bb4909f:p1:c0",
+        "b1493de8-e446-4f6f-a9ca-2f4e72a60a14:p2:c0",
+        "b1493de8-e446-4f6f-a9ca-2f4e72a60a14:p1:c0",
+        "ed76f597-e673-488e-a665-f748ae1bb594:p2:c0",
+        "ed76f597-e673-488e-a665-f748ae1bb594:p1:c0"
+      ],
+      "latency_ms": 779.81,
+      "passed": true
+    },
+    {
+      "id": "D16",
+      "kind": "retrieval",
+      "checks": [
+        {
+          "metric": "retrieval_expected_passages",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "retrieved_ids": [
+        "661e84d2-a5f4-4275-9d2f-e13f75e57174:p2:c0",
+        "661e84d2-a5f4-4275-9d2f-e13f75e57174:p1:c0"
+      ],
+      "latency_ms": 372.84,
+      "passed": true
+    },
+    {
+      "id": "D17",
+      "kind": "retrieval",
+      "checks": [
+        {
+          "metric": "retrieval_expected_passages",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "retrieved_ids": [
+        "d5731954-bdfa-486b-9060-4815864db9db:p2:c0",
+        "d5731954-bdfa-486b-9060-4815864db9db:p1:c0"
+      ],
+      "latency_ms": 547.15,
+      "passed": true
+    },
+    {
+      "id": "D18",
+      "kind": "answer",
+      "checks": [
+        {
+          "metric": "answerability_cases",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "answer": {
+        "answer": "FIXTURE: The available documents do not establish the answer. Not mentioned does not mean not covered.",
+        "citations": [],
+        "evidence_absent": true,
+        "conflict": false,
+        "activity": [
+          {
+            "tool": "search_documents",
+            "outcome": "Retrieved 2 page passages."
+          }
+        ],
+        "calculations": [],
+        "comparison": null,
+        "mode": "fixture",
+        "latency_ms": 33.18
+      },
+      "human_answer_support": null,
+      "latency_ms": 342.77,
+      "passed": true
+    },
+    {
+      "id": "D19",
+      "kind": "answer",
+      "checks": [
+        {
+          "metric": "answerability_cases",
+          "passed": true
+        },
+        {
+          "metric": "citation_validity",
+          "passed": true
+        },
+        {
+          "metric": "support_passage_proxy",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "answer": {
+        "answer": "FIXTURE: The retrieved passages below contain the relevant terms. This offline mode displays source text; live mode generates a concise answer.",
+        "citations": [
+          {
+            "citation_id": "d4731b03-98ac-42e4-97ea-179125daece6:p2:c0",
+            "document_id": "d4731b03-98ac-42e4-97ea-179125daece6",
+            "filename": "vendor_b.pdf",
+            "page": 2,
+            "text": "SYNTHETIC / FOR PORTFOLIO DEMONSTRATION ONLY\nPage 2\n VENDORWISE / SYNTHETIC DEMO\nVendor B | Warranty and delivery terms\nSample reference: vendor_b. No real customer or supplier data.\nWarranty duration: 36 months from delivery.\nWarranty service: onsite. Exclusions: accidental damage, liquid damage and misuse. Battery replacement is\ncovered for manufacturing defects for 12 months.\nDelivery: within 12 calendar days after receipt of purchase order and full payment.\nDelivery address must be within the supplier's city. Site access must be available.\nThis document is synthetic training data. It is not a commercial offer or tax advice."
+          }
+        ],
+        "evidence_absent": false,
+        "conflict": false,
+        "activity": [
+          {
+            "tool": "search_documents",
+            "outcome": "Retrieved 2 page passages."
+          }
+        ],
+        "calculations": [],
+        "comparison": null,
+        "mode": "fixture",
+        "latency_ms": 30.23
+      },
+      "human_answer_support": null,
+      "latency_ms": 376.8,
+      "passed": true
+    },
+    {
+      "id": "D20",
+      "kind": "whatif",
+      "checks": [
+        {
+          "metric": "whatif_assertions",
+          "passed": true
+        },
+        {
+          "metric": "whatif_assertions",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 774.63,
+      "passed": true
+    }
+  ]
+}

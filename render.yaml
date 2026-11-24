@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: vendorwise-demo
+    runtime: docker
+    plan: free
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: PORT
+        value: "7860"
+      - key: VENDORWISE_MODE
+        value: fixture
+      - key: VENDORWISE_PUBLIC_DEMO
+        value: "true"
+      - key: EMBEDDING_BACKEND
+        value: tfidf

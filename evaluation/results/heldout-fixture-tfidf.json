@@ -1,0 +1,174 @@
+{
+  "timestamp_utc": "2026-11-23T10:11:42.580779+00:00",
+  "split": "heldout",
+  "mode": "fixture",
+  "embeddings": "tfidf",
+  "cases_passed": 6,
+  "cases_total": 6,
+  "metrics": {
+    "fixture_field_consistency": {
+      "passed": 3,
+      "total": 3
+    },
+    "calculation_assertions": {
+      "passed": 3,
+      "total": 3
+    },
+    "recommendation_cases": {
+      "passed": 2,
+      "total": 2
+    },
+    "requirement_offer_status": {
+      "passed": 5,
+      "total": 5
+    },
+    "retrieval_expected_passages": {
+      "passed": 1,
+      "total": 1
+    },
+    "answerability_cases": {
+      "passed": 1,
+      "total": 1
+    }
+  },
+  "median_case_latency_ms": 183.405,
+  "human_answer_support": "Not scored; review answers against cited passages manually.",
+  "live_model_quality": "Not measured",
+  "records": [
+    {
+      "id": "H01",
+      "kind": "extraction",
+      "checks": [
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        },
+        {
+          "metric": "fixture_field_consistency",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 292.8,
+      "passed": true
+    },
+    {
+      "id": "H02",
+      "kind": "calculation",
+      "checks": [
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        },
+        {
+          "metric": "calculation_assertions",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 144.55,
+      "passed": true
+    },
+    {
+      "id": "H03",
+      "kind": "comparison",
+      "checks": [
+        {
+          "metric": "recommendation_cases",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 186.35,
+      "passed": true
+    },
+    {
+      "id": "H04",
+      "kind": "retrieval",
+      "checks": [
+        {
+          "metric": "retrieval_expected_passages",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "retrieved_ids": [
+        "8a5cc069-f402-4220-8210-2b38f18ee67f:p2:c0",
+        "8a5cc069-f402-4220-8210-2b38f18ee67f:p1:c0"
+      ],
+      "latency_ms": 162.16,
+      "passed": true
+    },
+    {
+      "id": "H05",
+      "kind": "answer",
+      "checks": [
+        {
+          "metric": "answerability_cases",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "answer": {
+        "answer": "FIXTURE: The available documents do not establish the answer. Not mentioned does not mean not covered.",
+        "citations": [],
+        "evidence_absent": true,
+        "conflict": false,
+        "activity": [
+          {
+            "tool": "search_documents",
+            "outcome": "Retrieved 2 page passages."
+          }
+        ],
+        "calculations": [],
+        "comparison": null,
+        "mode": "fixture",
+        "latency_ms": 27.08
+      },
+      "human_answer_support": null,
+      "latency_ms": 326.07,
+      "passed": true
+    },
+    {
+      "id": "H06",
+      "kind": "comparison",
+      "checks": [
+        {
+          "metric": "recommendation_cases",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        },
+        {
+          "metric": "requirement_offer_status",
+          "passed": true
+        }
+      ],
+      "error": null,
+      "latency_ms": 180.46,
+      "passed": true
+    }
+  ]
+}

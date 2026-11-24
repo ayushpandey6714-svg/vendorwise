@@ -1,0 +1,33 @@
+name: Docker demo check
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  docker-demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Linux image
+        run: docker build -t vendorwise-check .
+      - name: Run sample demo
+        run: docker run -d --name vendorwise-check -p 127.0.0.1:7860:7860 vendorwise-check
+      - name: Wait for frontend
+        shell: bash
+        run: |
+          for attempt in {1..90}; do
+            if curl --fail --silent http://127.0.0.1:7860/_stcore/health; then exit 0; fi
+            sleep 2
+          done
+          docker logs vendorwise-check
+          exit 1
+      - name: Verify real container workflow
+        run: docker exec vendorwise-check python -m scripts.smoke_container
+      - name: Show logs and stop container
+        if: always()
+        run: |
+          docker logs vendorwise-check || true
+          docker rm -f vendorwise-check || true

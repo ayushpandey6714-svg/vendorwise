@@ -1,0 +1,11 @@
+services:
+  vendorwise:
+    build: .
+    ports:
+      - "127.0.0.1:7860:7860"
+    environment:
+      PORT: "7860"
+      VENDORWISE_MODE: fixture
+      VENDORWISE_PUBLIC_DEMO: "true"
+      EMBEDDING_BACKEND: tfidf
+    restart: unless-stopped

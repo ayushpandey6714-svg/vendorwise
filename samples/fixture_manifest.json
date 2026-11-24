@@ -1,0 +1,2152 @@
+{
+  "400213f52617d6aca5c7d412542e6423065457e10adc9ba604a7fc09d78ccb1f": {
+    "sample": "vendor_a",
+    "quote": {
+      "document_id": "",
+      "filename": "vendor_a.pdf",
+      "vendor": {
+        "value": "Vendor A",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Supplier: Vendor A"
+          }
+        ],
+        "note": ""
+      },
+      "manufacturer": {
+        "value": "Example Computing",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Manufacturer: Example Computing (synthetic brand)"
+          }
+        ],
+        "note": ""
+      },
+      "model": {
+        "value": "StudyBook 14",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Product: StudyBook 14 laptop; one offered configuration only"
+          }
+        ],
+        "note": ""
+      },
+      "currency": {
+        "value": "INR",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Currency: INR. All amounts below are Indian rupees."
+          }
+        ],
+        "note": ""
+      },
+      "quantity": {
+        "value": 20,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Offered quantity: 20 laptops"
+          }
+        ],
+        "note": ""
+      },
+      "ram_gb": {
+        "value": 16,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Memory: 16 GB RAM"
+          }
+        ],
+        "note": ""
+      },
+      "storage_gb": {
+        "value": 512,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Storage: 512 GB SSD"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price": {
+        "value": "45000",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit price: INR 45000.00"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price_basis": {
+        "value": "before_tax",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit prices exclude tax and shipping."
+          }
+        ],
+        "note": ""
+      },
+      "tax": {
+        "value": {
+          "amount": null,
+          "rate_percent": "18",
+          "basis": "discounted_subtotal",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax: 18% of merchandise subtotal after discount, added separately."
+          }
+        ],
+        "note": ""
+      },
+      "discount": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Discount: INR 0.00; no discount applies."
+          }
+        ],
+        "note": ""
+      },
+      "shipping": {
+        "value": {
+          "amount": "18000",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Shipping: INR 18000.00, added separately; no further tax on shipping."
+          }
+        ],
+        "note": ""
+      },
+      "other_charges": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Other charges: INR 0.00."
+          }
+        ],
+        "note": ""
+      },
+      "all_charges_disclosed": {
+        "value": true,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "All applicable charges are listed above. No additional charges apply."
+          }
+        ],
+        "note": ""
+      },
+      "stated_total": {
+        "value": "1080000.00",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "FINAL PAYABLE TOTAL: INR 1080000.00"
+          }
+        ],
+        "note": ""
+      },
+      "warranty_months": {
+        "value": 12,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty duration: 12 months from delivery."
+          }
+        ],
+        "note": ""
+      },
+      "warranty_terms": {
+        "value": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse. Battery replacement is not covered.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse. Battery replacement is not covered."
+          }
+        ],
+        "note": ""
+      },
+      "delivery": {
+        "value": {
+          "days": 7,
+          "day_type": "calendar",
+          "trigger": "receipt of purchase order and full payment"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery: within 7 calendar days after receipt of purchase order and full payment."
+          }
+        ],
+        "note": ""
+      },
+      "delivery_terms": {
+        "value": "Delivery address must be within the supplier's city. Site access must be available.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery address must be within the supplier's city. Site access must be available."
+          }
+        ],
+        "note": ""
+      }
+    }
+  },
+  "d3996b6cfb96c5fb05b93d249dc26d94dc0015e501b140fb2f75b5ff509a1900": {
+    "sample": "vendor_b",
+    "quote": {
+      "document_id": "",
+      "filename": "vendor_b.pdf",
+      "vendor": {
+        "value": "Vendor B",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Supplier: Vendor B"
+          }
+        ],
+        "note": ""
+      },
+      "manufacturer": {
+        "value": "Example Computing",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Manufacturer: Example Computing (synthetic brand)"
+          }
+        ],
+        "note": ""
+      },
+      "model": {
+        "value": "StudyBook 14",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Product: StudyBook 14 laptop; one offered configuration only"
+          }
+        ],
+        "note": ""
+      },
+      "currency": {
+        "value": "INR",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Currency: INR. All amounts below are Indian rupees."
+          }
+        ],
+        "note": ""
+      },
+      "quantity": {
+        "value": 20,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Offered quantity: 20 laptops"
+          }
+        ],
+        "note": ""
+      },
+      "ram_gb": {
+        "value": 16,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Memory: 16 GB RAM"
+          }
+        ],
+        "note": ""
+      },
+      "storage_gb": {
+        "value": 512,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Storage: 512 GB SSD"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price": {
+        "value": "49000",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit price: INR 49000.00"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price_basis": {
+        "value": "before_tax",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit prices exclude tax and shipping."
+          }
+        ],
+        "note": ""
+      },
+      "tax": {
+        "value": {
+          "amount": null,
+          "rate_percent": "18",
+          "basis": "discounted_subtotal",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax: 18% of merchandise subtotal after discount, added separately."
+          }
+        ],
+        "note": ""
+      },
+      "discount": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Discount: INR 0.00; no discount applies."
+          }
+        ],
+        "note": ""
+      },
+      "shipping": {
+        "value": {
+          "amount": "3600",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Shipping: INR 3600.00, added separately; no further tax on shipping."
+          }
+        ],
+        "note": ""
+      },
+      "other_charges": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Other charges: INR 0.00."
+          }
+        ],
+        "note": ""
+      },
+      "all_charges_disclosed": {
+        "value": true,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "All applicable charges are listed above. No additional charges apply."
+          }
+        ],
+        "note": ""
+      },
+      "stated_total": {
+        "value": "1160000.00",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "FINAL PAYABLE TOTAL: INR 1160000.00"
+          }
+        ],
+        "note": ""
+      },
+      "warranty_months": {
+        "value": 36,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty duration: 36 months from delivery."
+          }
+        ],
+        "note": ""
+      },
+      "warranty_terms": {
+        "value": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse. Battery replacement is covered for manufacturing defects for 12 months.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse. Battery replacement is covered for manufacturing defects for 12 months."
+          }
+        ],
+        "note": ""
+      },
+      "delivery": {
+        "value": {
+          "days": 12,
+          "day_type": "calendar",
+          "trigger": "receipt of purchase order and full payment"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery: within 12 calendar days after receipt of purchase order and full payment."
+          }
+        ],
+        "note": ""
+      },
+      "delivery_terms": {
+        "value": "Delivery address must be within the supplier's city. Site access must be available.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery address must be within the supplier's city. Site access must be available."
+          }
+        ],
+        "note": ""
+      }
+    }
+  },
+  "d73dab6e71531294f5358ac3f6ff7dfbf46e655dc9a403fc7819620494806dd4": {
+    "sample": "vendor_c",
+    "quote": {
+      "document_id": "",
+      "filename": "vendor_c.pdf",
+      "vendor": {
+        "value": "Vendor C",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Supplier: Vendor C"
+          }
+        ],
+        "note": ""
+      },
+      "manufacturer": {
+        "value": "Example Computing",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Manufacturer: Example Computing (synthetic brand)"
+          }
+        ],
+        "note": ""
+      },
+      "model": {
+        "value": "StudyBook 14",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Product: StudyBook 14 laptop; one offered configuration only"
+          }
+        ],
+        "note": ""
+      },
+      "currency": {
+        "value": "INR",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Currency: INR. All amounts below are Indian rupees."
+          }
+        ],
+        "note": ""
+      },
+      "quantity": {
+        "value": 20,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Offered quantity: 20 laptops"
+          }
+        ],
+        "note": ""
+      },
+      "ram_gb": {
+        "value": 16,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Memory: 16 GB RAM"
+          }
+        ],
+        "note": ""
+      },
+      "storage_gb": {
+        "value": 512,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Storage: 512 GB SSD"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price": {
+        "value": "50000",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit price: INR 50000.00"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price_basis": {
+        "value": "before_tax",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit prices exclude tax and shipping."
+          }
+        ],
+        "note": ""
+      },
+      "tax": {
+        "value": {
+          "amount": null,
+          "rate_percent": "18",
+          "basis": "discounted_subtotal",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax: 18% of merchandise subtotal after discount, added separately."
+          }
+        ],
+        "note": ""
+      },
+      "discount": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Discount: INR 0.00; no discount applies."
+          }
+        ],
+        "note": ""
+      },
+      "shipping": {
+        "value": {
+          "amount": "10000",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Shipping: INR 10000.00, added separately; no further tax on shipping."
+          }
+        ],
+        "note": ""
+      },
+      "other_charges": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Other charges: INR 0.00."
+          }
+        ],
+        "note": ""
+      },
+      "all_charges_disclosed": {
+        "value": true,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "All applicable charges are listed above. No additional charges apply."
+          }
+        ],
+        "note": ""
+      },
+      "stated_total": {
+        "value": "1190000.00",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "FINAL PAYABLE TOTAL: INR 1190000.00"
+          }
+        ],
+        "note": ""
+      },
+      "warranty_months": {
+        "value": 36,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty duration: 36 months from delivery."
+          }
+        ],
+        "note": ""
+      },
+      "warranty_terms": {
+        "value": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse."
+          }
+        ],
+        "note": ""
+      },
+      "delivery": {
+        "value": {
+          "days": 8,
+          "day_type": "calendar",
+          "trigger": "receipt of purchase order and full payment"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery: within 8 calendar days after receipt of purchase order and full payment."
+          }
+        ],
+        "note": ""
+      },
+      "delivery_terms": {
+        "value": "Delivery address must be within the supplier's city. Site access must be available.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery address must be within the supplier's city. Site access must be available."
+          }
+        ],
+        "note": ""
+      }
+    }
+  },
+  "6d9f09f4bbaaf188c6c1ef27e63b207e1cce1f35fc9c2eaa26e9b571d68ea9b9": {
+    "sample": "incorrect_total",
+    "quote": {
+      "document_id": "",
+      "filename": "incorrect_total.pdf",
+      "vendor": {
+        "value": "Vendor C",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Supplier: Vendor C"
+          }
+        ],
+        "note": ""
+      },
+      "manufacturer": {
+        "value": "Example Computing",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Manufacturer: Example Computing (synthetic brand)"
+          }
+        ],
+        "note": ""
+      },
+      "model": {
+        "value": "StudyBook 14",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Product: StudyBook 14 laptop; one offered configuration only"
+          }
+        ],
+        "note": ""
+      },
+      "currency": {
+        "value": "INR",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Currency: INR. All amounts below are Indian rupees."
+          }
+        ],
+        "note": ""
+      },
+      "quantity": {
+        "value": 20,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Offered quantity: 20 laptops"
+          }
+        ],
+        "note": ""
+      },
+      "ram_gb": {
+        "value": 16,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Memory: 16 GB RAM"
+          }
+        ],
+        "note": ""
+      },
+      "storage_gb": {
+        "value": 512,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Storage: 512 GB SSD"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price": {
+        "value": "50000",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit price: INR 50000.00"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price_basis": {
+        "value": "before_tax",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit prices exclude tax and shipping."
+          }
+        ],
+        "note": ""
+      },
+      "tax": {
+        "value": {
+          "amount": null,
+          "rate_percent": "18",
+          "basis": "discounted_subtotal",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax: 18% of merchandise subtotal after discount, added separately."
+          }
+        ],
+        "note": ""
+      },
+      "discount": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Discount: INR 0.00; no discount applies."
+          }
+        ],
+        "note": ""
+      },
+      "shipping": {
+        "value": {
+          "amount": "10000",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Shipping: INR 10000.00, added separately; no further tax on shipping."
+          }
+        ],
+        "note": ""
+      },
+      "other_charges": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Other charges: INR 0.00."
+          }
+        ],
+        "note": ""
+      },
+      "all_charges_disclosed": {
+        "value": true,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "All applicable charges are listed above. No additional charges apply."
+          }
+        ],
+        "note": ""
+      },
+      "stated_total": {
+        "value": "1190500.00",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "FINAL PAYABLE TOTAL: INR 1190500.00"
+          }
+        ],
+        "note": ""
+      },
+      "warranty_months": {
+        "value": 36,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty duration: 36 months from delivery."
+          }
+        ],
+        "note": ""
+      },
+      "warranty_terms": {
+        "value": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse."
+          }
+        ],
+        "note": ""
+      },
+      "delivery": {
+        "value": {
+          "days": 8,
+          "day_type": "calendar",
+          "trigger": "receipt of purchase order and full payment"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery: within 8 calendar days after receipt of purchase order and full payment."
+          }
+        ],
+        "note": ""
+      },
+      "delivery_terms": {
+        "value": "Delivery address must be within the supplier's city. Site access must be available.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery address must be within the supplier's city. Site access must be available."
+          }
+        ],
+        "note": ""
+      }
+    }
+  },
+  "38dfcdb56497959ccfa42bde9c64e98a9257d6d9e3879ff40fd3a8f6f24e4aed": {
+    "sample": "missing_warranty",
+    "quote": {
+      "document_id": "",
+      "filename": "missing_warranty.pdf",
+      "vendor": {
+        "value": "Vendor C",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Supplier: Vendor C"
+          }
+        ],
+        "note": ""
+      },
+      "manufacturer": {
+        "value": "Example Computing",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Manufacturer: Example Computing (synthetic brand)"
+          }
+        ],
+        "note": ""
+      },
+      "model": {
+        "value": "StudyBook 14",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Product: StudyBook 14 laptop; one offered configuration only"
+          }
+        ],
+        "note": ""
+      },
+      "currency": {
+        "value": "INR",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Currency: INR. All amounts below are Indian rupees."
+          }
+        ],
+        "note": ""
+      },
+      "quantity": {
+        "value": 20,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Offered quantity: 20 laptops"
+          }
+        ],
+        "note": ""
+      },
+      "ram_gb": {
+        "value": 16,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Memory: 16 GB RAM"
+          }
+        ],
+        "note": ""
+      },
+      "storage_gb": {
+        "value": 512,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Storage: 512 GB SSD"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price": {
+        "value": "50000",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit price: INR 50000.00"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price_basis": {
+        "value": "before_tax",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit prices exclude tax and shipping."
+          }
+        ],
+        "note": ""
+      },
+      "tax": {
+        "value": {
+          "amount": null,
+          "rate_percent": "18",
+          "basis": "discounted_subtotal",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax: 18% of merchandise subtotal after discount, added separately."
+          }
+        ],
+        "note": ""
+      },
+      "discount": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Discount: INR 0.00; no discount applies."
+          }
+        ],
+        "note": ""
+      },
+      "shipping": {
+        "value": {
+          "amount": "10000",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Shipping: INR 10000.00, added separately; no further tax on shipping."
+          }
+        ],
+        "note": ""
+      },
+      "other_charges": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Other charges: INR 0.00."
+          }
+        ],
+        "note": ""
+      },
+      "all_charges_disclosed": {
+        "value": true,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "All applicable charges are listed above. No additional charges apply."
+          }
+        ],
+        "note": ""
+      },
+      "stated_total": {
+        "value": "1190000.00",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "FINAL PAYABLE TOTAL: INR 1190000.00"
+          }
+        ],
+        "note": ""
+      },
+      "warranty_months": {
+        "value": null,
+        "status": "missing",
+        "evidence": [],
+        "note": "Warranty duration not stated."
+      },
+      "warranty_terms": {
+        "value": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse."
+          }
+        ],
+        "note": ""
+      },
+      "delivery": {
+        "value": {
+          "days": 8,
+          "day_type": "calendar",
+          "trigger": "receipt of purchase order and full payment"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery: within 8 calendar days after receipt of purchase order and full payment."
+          }
+        ],
+        "note": ""
+      },
+      "delivery_terms": {
+        "value": "Delivery address must be within the supplier's city. Site access must be available.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery address must be within the supplier's city. Site access must be available."
+          }
+        ],
+        "note": ""
+      }
+    }
+  },
+  "010d2cc9a2da7cdff44f8ad999fea9330e525c577ab549a684c30243fb3f6fa0": {
+    "sample": "ambiguous_tax",
+    "quote": {
+      "document_id": "",
+      "filename": "ambiguous_tax.pdf",
+      "vendor": {
+        "value": "Vendor C",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Supplier: Vendor C"
+          }
+        ],
+        "note": ""
+      },
+      "manufacturer": {
+        "value": "Example Computing",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Manufacturer: Example Computing (synthetic brand)"
+          }
+        ],
+        "note": ""
+      },
+      "model": {
+        "value": "StudyBook 14",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Product: StudyBook 14 laptop; one offered configuration only"
+          }
+        ],
+        "note": ""
+      },
+      "currency": {
+        "value": "INR",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Currency: INR. All amounts below are Indian rupees."
+          }
+        ],
+        "note": ""
+      },
+      "quantity": {
+        "value": 20,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Offered quantity: 20 laptops"
+          }
+        ],
+        "note": ""
+      },
+      "ram_gb": {
+        "value": 16,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Memory: 16 GB RAM"
+          }
+        ],
+        "note": ""
+      },
+      "storage_gb": {
+        "value": 512,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Storage: 512 GB SSD"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price": {
+        "value": "50000",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit price: INR 50000.00"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price_basis": {
+        "value": null,
+        "status": "ambiguous",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax inclusion in unit price is to be confirmed."
+          }
+        ],
+        "note": ""
+      },
+      "tax": {
+        "value": null,
+        "status": "ambiguous",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax: 18%; whether already included is to be confirmed."
+          }
+        ],
+        "note": ""
+      },
+      "discount": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Discount: INR 0.00; no discount applies."
+          }
+        ],
+        "note": ""
+      },
+      "shipping": {
+        "value": {
+          "amount": "10000",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Shipping: INR 10000.00, added separately; no further tax on shipping."
+          }
+        ],
+        "note": ""
+      },
+      "other_charges": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Other charges: INR 0.00."
+          }
+        ],
+        "note": ""
+      },
+      "all_charges_disclosed": {
+        "value": true,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "All applicable charges are listed above. No additional charges apply."
+          }
+        ],
+        "note": ""
+      },
+      "stated_total": {
+        "value": "1190000.00",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "FINAL PAYABLE TOTAL: INR 1190000.00"
+          }
+        ],
+        "note": ""
+      },
+      "warranty_months": {
+        "value": 36,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty duration: 36 months from delivery."
+          }
+        ],
+        "note": ""
+      },
+      "warranty_terms": {
+        "value": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse."
+          }
+        ],
+        "note": ""
+      },
+      "delivery": {
+        "value": {
+          "days": 8,
+          "day_type": "calendar",
+          "trigger": "receipt of purchase order and full payment"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery: within 8 calendar days after receipt of purchase order and full payment."
+          }
+        ],
+        "note": ""
+      },
+      "delivery_terms": {
+        "value": "Delivery address must be within the supplier's city. Site access must be available.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery address must be within the supplier's city. Site access must be available."
+          }
+        ],
+        "note": ""
+      }
+    }
+  },
+  "64eb5d4e7493740c1651d151ef461c8d2e8976d79979b0b254ee3e0051e26a88": {
+    "sample": "missing_battery",
+    "quote": {
+      "document_id": "",
+      "filename": "missing_battery.pdf",
+      "vendor": {
+        "value": "Vendor B",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Supplier: Vendor B"
+          }
+        ],
+        "note": ""
+      },
+      "manufacturer": {
+        "value": "Example Computing",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Manufacturer: Example Computing (synthetic brand)"
+          }
+        ],
+        "note": ""
+      },
+      "model": {
+        "value": "StudyBook 14",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Product: StudyBook 14 laptop; one offered configuration only"
+          }
+        ],
+        "note": ""
+      },
+      "currency": {
+        "value": "INR",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Currency: INR. All amounts below are Indian rupees."
+          }
+        ],
+        "note": ""
+      },
+      "quantity": {
+        "value": 20,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Offered quantity: 20 laptops"
+          }
+        ],
+        "note": ""
+      },
+      "ram_gb": {
+        "value": 16,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Memory: 16 GB RAM"
+          }
+        ],
+        "note": ""
+      },
+      "storage_gb": {
+        "value": 512,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Storage: 512 GB SSD"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price": {
+        "value": "49000",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit price: INR 49000.00"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price_basis": {
+        "value": "before_tax",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit prices exclude tax and shipping."
+          }
+        ],
+        "note": ""
+      },
+      "tax": {
+        "value": {
+          "amount": null,
+          "rate_percent": "18",
+          "basis": "discounted_subtotal",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax: 18% of merchandise subtotal after discount, added separately."
+          }
+        ],
+        "note": ""
+      },
+      "discount": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Discount: INR 0.00; no discount applies."
+          }
+        ],
+        "note": ""
+      },
+      "shipping": {
+        "value": {
+          "amount": "3600",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Shipping: INR 3600.00, added separately; no further tax on shipping."
+          }
+        ],
+        "note": ""
+      },
+      "other_charges": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Other charges: INR 0.00."
+          }
+        ],
+        "note": ""
+      },
+      "all_charges_disclosed": {
+        "value": true,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "All applicable charges are listed above. No additional charges apply."
+          }
+        ],
+        "note": ""
+      },
+      "stated_total": {
+        "value": "1160000.00",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "FINAL PAYABLE TOTAL: INR 1160000.00"
+          }
+        ],
+        "note": ""
+      },
+      "warranty_months": {
+        "value": 36,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty duration: 36 months from delivery."
+          }
+        ],
+        "note": ""
+      },
+      "warranty_terms": {
+        "value": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse."
+          }
+        ],
+        "note": ""
+      },
+      "delivery": {
+        "value": {
+          "days": 12,
+          "day_type": "calendar",
+          "trigger": "receipt of purchase order and full payment"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery: within 12 calendar days after receipt of purchase order and full payment."
+          }
+        ],
+        "note": ""
+      },
+      "delivery_terms": {
+        "value": "Delivery address must be within the supplier's city. Site access must be available.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery address must be within the supplier's city. Site access must be available."
+          }
+        ],
+        "note": ""
+      }
+    }
+  },
+  "ba73bc8009f336c080033dab60b440212e2b89b69239aac004a68f25f0f992a9": {
+    "sample": "no_qualifying",
+    "quote": {
+      "document_id": "",
+      "filename": "no_qualifying.pdf",
+      "vendor": {
+        "value": "Vendor A",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Supplier: Vendor A"
+          }
+        ],
+        "note": ""
+      },
+      "manufacturer": {
+        "value": "Example Computing",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Manufacturer: Example Computing (synthetic brand)"
+          }
+        ],
+        "note": ""
+      },
+      "model": {
+        "value": "StudyBook 14",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Product: StudyBook 14 laptop; one offered configuration only"
+          }
+        ],
+        "note": ""
+      },
+      "currency": {
+        "value": "INR",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Currency: INR. All amounts below are Indian rupees."
+          }
+        ],
+        "note": ""
+      },
+      "quantity": {
+        "value": 20,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Offered quantity: 20 laptops"
+          }
+        ],
+        "note": ""
+      },
+      "ram_gb": {
+        "value": 16,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Memory: 16 GB RAM"
+          }
+        ],
+        "note": ""
+      },
+      "storage_gb": {
+        "value": 512,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Storage: 512 GB SSD"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price": {
+        "value": "45000",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit price: INR 45000.00"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price_basis": {
+        "value": "before_tax",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit prices exclude tax and shipping."
+          }
+        ],
+        "note": ""
+      },
+      "tax": {
+        "value": {
+          "amount": null,
+          "rate_percent": "18",
+          "basis": "discounted_subtotal",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax: 18% of merchandise subtotal after discount, added separately."
+          }
+        ],
+        "note": ""
+      },
+      "discount": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Discount: INR 0.00; no discount applies."
+          }
+        ],
+        "note": ""
+      },
+      "shipping": {
+        "value": {
+          "amount": "18000",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Shipping: INR 18000.00, added separately; no further tax on shipping."
+          }
+        ],
+        "note": ""
+      },
+      "other_charges": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Other charges: INR 0.00."
+          }
+        ],
+        "note": ""
+      },
+      "all_charges_disclosed": {
+        "value": true,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "All applicable charges are listed above. No additional charges apply."
+          }
+        ],
+        "note": ""
+      },
+      "stated_total": {
+        "value": "1080000.00",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "FINAL PAYABLE TOTAL: INR 1080000.00"
+          }
+        ],
+        "note": ""
+      },
+      "warranty_months": {
+        "value": 6,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty duration: 6 months from delivery."
+          }
+        ],
+        "note": ""
+      },
+      "warranty_terms": {
+        "value": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse. Battery replacement is not covered.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse. Battery replacement is not covered."
+          }
+        ],
+        "note": ""
+      },
+      "delivery": {
+        "value": {
+          "days": 30,
+          "day_type": "calendar",
+          "trigger": "receipt of purchase order and full payment"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery: within 30 calendar days after receipt of purchase order and full payment."
+          }
+        ],
+        "note": ""
+      },
+      "delivery_terms": {
+        "value": "Delivery address must be within the supplier's city. Site access must be available.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery address must be within the supplier's city. Site access must be available."
+          }
+        ],
+        "note": ""
+      }
+    }
+  },
+  "5174aa13d4e40dbd100ffd3c07888ca16cd828abe51716c8e40d2c844ebf695f": {
+    "sample": "quantity_mismatch",
+    "quote": {
+      "document_id": "",
+      "filename": "quantity_mismatch.pdf",
+      "vendor": {
+        "value": "Vendor C",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Supplier: Vendor C"
+          }
+        ],
+        "note": ""
+      },
+      "manufacturer": {
+        "value": "Example Computing",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Manufacturer: Example Computing (synthetic brand)"
+          }
+        ],
+        "note": ""
+      },
+      "model": {
+        "value": "StudyBook 14",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Product: StudyBook 14 laptop; one offered configuration only"
+          }
+        ],
+        "note": ""
+      },
+      "currency": {
+        "value": "INR",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Currency: INR. All amounts below are Indian rupees."
+          }
+        ],
+        "note": ""
+      },
+      "quantity": {
+        "value": 19,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Offered quantity: 19 laptops"
+          }
+        ],
+        "note": ""
+      },
+      "ram_gb": {
+        "value": 16,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Memory: 16 GB RAM"
+          }
+        ],
+        "note": ""
+      },
+      "storage_gb": {
+        "value": 512,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Storage: 512 GB SSD"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price": {
+        "value": "50000",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit price: INR 50000.00"
+          }
+        ],
+        "note": ""
+      },
+      "unit_price_basis": {
+        "value": "before_tax",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Unit prices exclude tax and shipping."
+          }
+        ],
+        "note": ""
+      },
+      "tax": {
+        "value": {
+          "amount": null,
+          "rate_percent": "18",
+          "basis": "discounted_subtotal",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Tax: 18% of merchandise subtotal after discount, added separately."
+          }
+        ],
+        "note": ""
+      },
+      "discount": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Discount: INR 0.00; no discount applies."
+          }
+        ],
+        "note": ""
+      },
+      "shipping": {
+        "value": {
+          "amount": "10000",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Shipping: INR 10000.00, added separately; no further tax on shipping."
+          }
+        ],
+        "note": ""
+      },
+      "other_charges": {
+        "value": {
+          "amount": "0",
+          "rate_percent": null,
+          "basis": "fixed",
+          "treatment": "add"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "Other charges: INR 0.00."
+          }
+        ],
+        "note": ""
+      },
+      "all_charges_disclosed": {
+        "value": true,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "All applicable charges are listed above. No additional charges apply."
+          }
+        ],
+        "note": ""
+      },
+      "stated_total": {
+        "value": "1131000.00",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 1,
+            "text": "FINAL PAYABLE TOTAL: INR 1131000.00"
+          }
+        ],
+        "note": ""
+      },
+      "warranty_months": {
+        "value": 36,
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty duration: 36 months from delivery."
+          }
+        ],
+        "note": ""
+      },
+      "warranty_terms": {
+        "value": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Warranty service: onsite. Exclusions: accidental damage, liquid damage and misuse."
+          }
+        ],
+        "note": ""
+      },
+      "delivery": {
+        "value": {
+          "days": 8,
+          "day_type": "calendar",
+          "trigger": "receipt of purchase order and full payment"
+        },
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery: within 8 calendar days after receipt of purchase order and full payment."
+          }
+        ],
+        "note": ""
+      },
+      "delivery_terms": {
+        "value": "Delivery address must be within the supplier's city. Site access must be available.",
+        "status": "explicit",
+        "evidence": [
+          {
+            "page": 2,
+            "text": "Delivery address must be within the supplier's city. Site access must be available."
+          }
+        ],
+        "note": ""
+      }
+    }
+  }
+}

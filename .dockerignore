@@ -1,0 +1,15 @@
+.git
+.venv
+.env
+.env.*
+!.env.example
+data
+work
+**/__pycache__
+.pytest_cache
+*.log
+*.zip
+.streamlit/secrets.toml
+tests
+deployment-backup-*
+evaluation/results

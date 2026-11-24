@@ -1,0 +1,8 @@
+[
+  {"id":"H01","kind":"extraction","samples":["missing_warranty"],"expected":{"vendor":"Vendor C","warranty_months":null,"quantity":20}},
+  {"id":"H02","kind":"calculation","samples":["quantity_mismatch"],"expected":{"calculated_total":"1131000.00","complete":true,"comparable":true}},
+  {"id":"H03","kind":"comparison","samples":["vendor_a","vendor_b","vendor_c"],"requirements":{"budget":"1000000"},"expected":{"winners":[],"statuses":["FAIL","FAIL","FAIL"]}},
+  {"id":"H04","kind":"retrieval","samples":["missing_battery"],"question":"What warranty exclusions does Vendor B specify?","expected":{"filename":"missing_battery.pdf","page":2,"contains":"accidental damage"}},
+  {"id":"H05","kind":"answer","samples":["missing_battery"],"question":"Is battery replacement covered by Vendor B?","expected":{"evidence_absent":true}},
+  {"id":"H06","kind":"comparison","samples":["incorrect_total","missing_warranty"],"expected":{"winners":[],"statuses":["PASS","UNKNOWN"]}}
+]

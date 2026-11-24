@@ -1,0 +1,10 @@
+.venv/
+.env
+data/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.log
+.streamlit/secrets.toml
+work/
+deployment-backup-*/

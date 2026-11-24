@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "method": "Streamlit 1.67 running agent API over localhost HTTP",
+  "steps": [
+    "create and extract synthetic quotations",
+    "comparison",
+    "what-if savings INR 30000",
+    "Q&A with source passages"
+  ],
+  "browser_visual_test": false
+}

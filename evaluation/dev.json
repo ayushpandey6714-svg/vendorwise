@@ -1,0 +1,22 @@
+[
+  {"id":"D01","kind":"extraction","samples":["vendor_a"],"expected":{"vendor":"Vendor A","quantity":20,"ram_gb":16,"storage_gb":512,"unit_price":"45000","stated_total":"1080000.00","warranty_months":12,"delivery.days":7}},
+  {"id":"D02","kind":"extraction","samples":["vendor_b"],"expected":{"vendor":"Vendor B","quantity":20,"ram_gb":16,"storage_gb":512,"unit_price":"49000","stated_total":"1160000.00","warranty_months":36,"delivery.days":12}},
+  {"id":"D03","kind":"extraction","samples":["vendor_c"],"expected":{"vendor":"Vendor C","quantity":20,"ram_gb":16,"storage_gb":512,"unit_price":"50000","stated_total":"1190000.00","warranty_months":36,"delivery.days":8}},
+  {"id":"D04","kind":"calculation","samples":["vendor_a"],"expected":{"calculated_total":"1080000.00","complete":true,"comparable":true}},
+  {"id":"D05","kind":"calculation","samples":["vendor_b"],"expected":{"calculated_total":"1160000.00","complete":true,"comparable":true}},
+  {"id":"D06","kind":"calculation","samples":["vendor_c"],"expected":{"calculated_total":"1190000.00","complete":true,"comparable":true}},
+  {"id":"D07","kind":"calculation","samples":["incorrect_total"],"expected":{"calculated_total":"1190000.00","discrepancy":"500.00","comparable":false}},
+  {"id":"D08","kind":"calculation","samples":["ambiguous_tax"],"expected":{"calculated_total":null,"complete":false,"comparable":false}},
+  {"id":"D09","kind":"comparison","samples":["vendor_a","vendor_b","vendor_c"],"expected":{"winners":["Vendor C"],"statuses":["FAIL","FAIL","PASS"]}},
+  {"id":"D10","kind":"comparison","samples":["no_qualifying"],"expected":{"winners":[],"statuses":["FAIL"]}},
+  {"id":"D11","kind":"comparison","samples":["quantity_mismatch"],"expected":{"winners":[],"statuses":["FAIL"]}},
+  {"id":"D12","kind":"comparison","samples":["missing_warranty"],"expected":{"winners":[],"statuses":["UNKNOWN"]}},
+  {"id":"D13","kind":"retrieval","samples":["vendor_a","vendor_b","vendor_c"],"question":"Does Vendor B include battery replacement?","expected":{"filename":"vendor_b.pdf","page":2,"contains":"Battery replacement is covered"}},
+  {"id":"D14","kind":"retrieval","samples":["vendor_c"],"question":"What exclusions are listed in Vendor C's warranty?","expected":{"filename":"vendor_c.pdf","page":2,"contains":"liquid damage"}},
+  {"id":"D15","kind":"retrieval","samples":["vendor_a","vendor_b","vendor_c"],"question":"Which vendor offers onsite warranty?","expected":{"all_filenames":["vendor_a.pdf","vendor_b.pdf","vendor_c.pdf"],"page":2,"contains":"onsite"}},
+  {"id":"D16","kind":"retrieval","samples":["vendor_c"],"question":"What conditions apply to Vendor C delivery?","expected":{"filename":"vendor_c.pdf","page":2,"contains":"purchase order and full payment"}},
+  {"id":"D17","kind":"retrieval","samples":["vendor_a","vendor_b"],"question":"Does Vendor A include battery replacement?","expected":{"filename":"vendor_a.pdf","page":2,"contains":"Battery replacement is not covered"}},
+  {"id":"D18","kind":"answer","samples":["vendor_c"],"question":"Does Vendor C include battery replacement?","expected":{"evidence_absent":true}},
+  {"id":"D19","kind":"answer","samples":["vendor_b"],"question":"Does Vendor B include battery replacement?","expected":{"evidence_absent":false,"support_contains":"Battery replacement is covered"}},
+  {"id":"D20","kind":"whatif","samples":["vendor_a","vendor_b","vendor_c"],"change":{"budget":"1200000","min_warranty_months":36,"max_delivery_days":14},"expected":{"winners":["Vendor B"],"savings":"30000.00"}}
+]

@@ -1,0 +1,39 @@
+{
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "packages": {
+    "fastapi": "0.165.0",
+    "uvicorn": "0.54.0",
+    "streamlit": "1.67.0",
+    "pydantic": "2.14.4",
+    "openai": "3.57.0",
+    "pypdf": "7.1.1",
+    "reportlab": "5.1.0",
+    "fastembed": "0.9.1",
+    "qdrant-client": "1.20.0",
+    "onnxruntime": "1.32.0",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.5",
+    "pytest": "9.2.0",
+    "httpx": "0.28.1",
+    "python-multipart": "0.0.34",
+    "python-dotenv": "1.2.4",
+    "pypdfium2": "5.15.2",
+    "ty": "0.0.108"
+  },
+  "sample_sha256": {
+    "ambiguous_tax.pdf": "010d2cc9a2da7cdff44f8ad999fea9330e525c577ab549a684c30243fb3f6fa0",
+    "incorrect_total.pdf": "6d9f09f4bbaaf188c6c1ef27e63b207e1cce1f35fc9c2eaa26e9b571d68ea9b9",
+    "missing_battery.pdf": "64eb5d4e7493740c1651d151ef461c8d2e8976d79979b0b254ee3e0051e26a88",
+    "missing_warranty.pdf": "38dfcdb56497959ccfa42bde9c64e98a9257d6d9e3879ff40fd3a8f6f24e4aed",
+    "no_qualifying.pdf": "ba73bc8009f336c080033dab60b440212e2b89b69239aac004a68f25f0f992a9",
+    "quantity_mismatch.pdf": "5174aa13d4e40dbd100ffd3c07888ca16cd828abe51716c8e40d2c844ebf695f",
+    "vendor_a.pdf": "400213f52617d6aca5c7d412542e6423065457e10adc9ba604a7fc09d78ccb1f",
+    "vendor_b.pdf": "d3996b6cfb96c5fb05b93d249dc26d94dc0015e501b140fb2f75b5ff509a1900",
+    "vendor_c.pdf": "d73dab6e71531294f5358ac3f6ff7dfbf46e655dc9a403fc7819620494806dd4"
+  },
+  "evaluation_sha256": {
+    "dev.json": "ff78acca98e63f540b912c71e940fc7842a2437011f675b87f549ad2d8846811",
+    "heldout.json": "fdad7328d3ca2dc673095682f84d037c14cda6b99939cce5d0153d285c5da34c"
+  }
+}

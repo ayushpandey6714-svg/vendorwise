@@ -1,0 +1,1 @@
+{"provider": "openrouter", "configured_model": "nvidia/nemotron-3.5-super-vl:free", "mode": "live", "steps": [{"step": "create", "status": 201}, {"step": "upload", "status": 201}], "analysis_id": "85628e01-07d8-4145-843e-b01409b72fe3", "status": "failed", "error_type": "VendorWiseError"}
