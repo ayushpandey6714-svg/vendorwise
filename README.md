@@ -14,7 +14,7 @@
 
 ## 🌐 Live Demo
 
-> 🚀 **[Live Demo on Render →](https://vendorwise.onrender.com)** *(deploy karne ke baad yahan real link ayega)*
+> 🚀 **[Live Demo on Render →](https://vendorwise.onrender.com)**
 
 ---
 
