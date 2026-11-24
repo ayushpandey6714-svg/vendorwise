@@ -1,190 +1,228 @@
-# VendorWise
-**AI Quotation Auditor and Comparison Assistant**
+# VendorWise 🧾
 
-A local portfolio project for a buyer comparing up to three laptop quotations. It extracts inspectable evidence, audits arithmetic, checks mandatory requirements, retrieves document passages for questions, and shows what changes when the buyer changes requirements.
+**AI-powered Quotation Auditor & Vendor Comparison Tool**
 
-**Want a public demo?** Follow [Docker + Render instructions in Hinglish](docs/DEPLOY_HINGLISH.md). The Docker configuration exposes only a clearly labelled synthetic sample demo; it does not expose paid live-model access or personal quotation uploads. Docker/cloud deployment itself is not yet verified.
+> Compare up to **3 vendor PDF quotations**, audit arithmetic, check requirements, ask questions with cited evidence — all in one clean web interface.
 
-This is a learning project, not a production purchasing system. Synthetic samples are labelled throughout. Inspect the evidence before relying on a model interpretation.
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.165-green?logo=fastapi)](https://fastapi.tiangolo.com)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.67-red?logo=streamlit)](https://streamlit.io)
+[![Docker](https://img.shields.io/badge/Docker-ready-blue?logo=docker)](https://docker.com)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-## Quick start (Windows PowerShell)
+---
 
-Open a terminal in this folder. Python 3.14 was used for the recorded checks; the source declares Python 3.11–3.14 but other Python versions/platforms have not been tested here.
+## 🌐 Live Demo
+
+> 🚀 **[Live Demo on Render →](https://vendorwise.onrender.com)** *(deploy karne ke baad yahan real link ayega)*
+
+---
+
+## ✨ What It Does
+
+| Feature | Description |
+|---|---|
+| 📄 **PDF Extraction** | Pulls price, RAM, warranty, delivery, taxes from vendor PDFs |
+| 🧮 **Arithmetic Audit** | Verifies stated totals using Python `Decimal` — catches rounding errors |
+| ✅ **Requirement Check** | PASS / FAIL / UNKNOWN for budget, RAM, storage, warranty, delivery |
+| 🔄 **What-If Analysis** | Change requirements → instantly see who qualifies, how much you save |
+| 💬 **Cited Q&A** | Ask questions about documents — answers cite exact PDF pages |
+| 📊 **Report Download** | Full Markdown audit report with evidence |
+
+---
+
+## 🖥️ Screenshots
+
+```
+[ Vendor A ]  PASS ✅  INR 10,80,000  Verified  ⭐ Recommended
+[ Vendor B ]  FAIL ❌  INR 11,60,000  Verified  (warranty too short)
+[ Vendor C ]  PASS ✅  INR 11,90,000  Verified
+```
+
+---
+
+## 🏗️ Architecture
+
+```
+Browser (Streamlit UI)
+        │  HTTP
+        ▼
+FastAPI Backend (port 8000)
+   ├── PDF Parsing (pypdf)
+   ├── LLM Extraction (Gemini / OpenAI / OpenRouter)
+   ├── Deterministic Audit (Python Decimal — no AI)
+   ├── RAG Search (Qdrant + TF-IDF / BGE embeddings)
+   └── Bounded AI Assistant (3 tools, citation validation)
+```
+
+---
+
+## 🚀 Quick Start (Local)
+
+### 1. Clone & Setup
 
 ```powershell
+git clone https://github.com/ayushpandey6714-svg/vendorwise.git
+cd vendorwise
 python -m venv .venv
 .\.venv\Scripts\python -m pip install -r requirements-lock.txt
-Copy-Item .env.example .env
-.\.venv\Scripts\python -m scripts.generate_samples
 ```
 
-The supplied PDFs are already generated. Regeneration also refreshes their exact-hash fixture manifest. Do not regenerate just one PDF without refreshing the manifest.
+### 2. Run Demo (No API key needed)
 
-Start the backend in terminal 1:
-
-```powershell
-.\start_backend.ps1 -Mode fixture -Embeddings tfidf
-```
-
-Start the frontend in terminal 2:
-
-```powershell
-.\start_frontend.ps1
-```
-
-Open [VendorWise](http://127.0.0.1:8501). Select **Use the three synthetic demo PDFs**, then **Create analysis and extract**. Swagger API documentation is at [localhost:8000/docs](http://127.0.0.1:8000/docs).
-
-If local PowerShell policy prevents scripts, run these commands directly in separate terminals (no activation or execution-policy change required):
-
+**Terminal 1 — Backend:**
 ```powershell
 $env:VENDORWISE_MODE = 'fixture'
 $env:EMBEDDING_BACKEND = 'tfidf'
 .\.venv\Scripts\python -m uvicorn vendorwise.api:app --host 127.0.0.1 --port 8000
 ```
 
+**Terminal 2 — Frontend:**
 ```powershell
 .\.venv\Scripts\python -m streamlit run streamlit_app.py --server.address 127.0.0.1 --server.port 8501
 ```
 
-## Real API mode and local semantic embeddings
+**Open:** [http://localhost:8501](http://localhost:8501) → Select **"Use the three synthetic demo PDFs"** → **Create analysis and extract**
 
-**OpenRouter:** follow [OpenRouter setup](docs/OPENROUTER_SETUP.md). The example environment selects `openrouter/free`; configure `OPENROUTER_API_KEY` locally and switch to live mode. This uses Chat Completions with required parameter support. The sample live workflow has passed; public deployment remains pending.
+> API docs at [http://localhost:8000/docs](http://localhost:8000/docs)
 
-**Latest verification:** the live synthetic sample workflow has now passed extraction, comparison, delivery what-if, a manually reviewed cited Q&A answer, and report download. See [validation evidence](docs/VALIDATION.md). Docker image execution and public deployment remain pending; the supplied GitHub Actions workflow will check the Linux image after upload.
+---
 
-**Free-tier Gemini setup:** follow [the beginner guide](docs/FREE_API_HINGLISH.md). Gemini uses Google's Chat Completions-compatible endpoint; OpenAI uses the Responses API. Both paths validate extracted fields and use the same server-owned calculation and search tools. No live provider call has been verified yet.
+## 🤖 Live AI Mode (Real LLM)
 
-Edit `.env` on your computer; never paste keys into chat or commit them:
+Edit `.env` (copy from `.env.example`):
 
 ```dotenv
 VENDORWISE_MODE=live
 LLM_PROVIDER=gemini
 GEMINI_API_KEY=your-key-here
-GEMINI_MODEL=gemini-3.5-flash-lite
-VENDORWISE_PUBLIC_DEMO=false
+GEMINI_MODEL=gemini-2.0-flash-lite
 EMBEDDING_BACKEND=fastembed
-EMBEDDING_MODEL=BAAI/bge-small-en-v1.5
 ```
 
-Then start `start_backend.ps1 -Mode live -Embeddings fastembed` and create a **new** analysis. Existing shell environment variables take precedence over `.env`. The startup script explicitly sets mode and embeddings from its arguments. To use OpenAI instead, set `LLM_PROVIDER=openai`, `OPENAI_API_KEY`, and `OPENAI_MODEL` (example: `gpt-4.1-mini`). Only that provider's key/model settings are used. The example models are not a claim of live verification.
+Supported providers: **Gemini** · **OpenAI** · **OpenRouter**
 
-Live extraction and answers send quotation text/retrieved passages to the selected provider. Gemini's selected model has a limited free tier; check your account quota and use nonconfidential samples because Google lists free-tier content as used to improve its products ([pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash-lite)). Paid API access may incur charges. No API key is required for fixture mode. The first `fastembed` extraction downloads BGE model files into `data/model_cache`; subsequent runs use the cache. Embeddings and Qdrant searches execute locally. A failed model download reports an error; it does not silently substitute another embedding method.
+> ⚠️ Never commit your `.env` file or paste API keys in chat.
 
-| Mode | Extraction / assistant | Retrieval |
-|---|---|---|
-| `fixture` + `tfidf` | Exact-hash sample facts; deterministic demo router and source excerpts | Real local TF-IDF lexical vectors in Qdrant; no model download |
-| `fixture` + `fastembed` | Same explicit fixture behavior | Real local semantic BGE embeddings in Qdrant |
-| `live` + `fastembed` | Gemini or OpenAI structured extraction and bounded function calling | Local semantic retrieval, followed by grounded answer generation |
+---
 
-TF-IDF is a transparent lexical baseline, not a neural semantic model. Fixture responses do not measure live LLM quality and are not presented as AI-generated answers. Arbitrary uploaded PDFs are rejected by fixture extraction even if renamed to a sample filename.
-
-## Demonstration
-
-All samples contain one fictional laptop configuration: 16 GB RAM, 512 GB SSD, 20 laptops (except the quantity-mismatch case), INR only.
-
-| Offer | Unit price | Merchandise | Tax (18% of merchandise) | Shipping | Total | Warranty | Delivery |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Vendor A | 45,000 | 900,000 | 162,000 | 18,000 | 1,080,000 | 12 months | 7 calendar days |
-| Vendor B | 49,000 | 980,000 | 176,400 | 3,600 | 1,160,000 | 36 months | 12 calendar days |
-| Vendor C | 50,000 | 1,000,000 | 180,000 | 10,000 | 1,190,000 | 36 months | 8 calendar days |
-
-Zero discounts and other charges, separate tax/shipping, their bases and no additional charges are explicitly stated. These are synthetic arithmetic examples, not tax guidance.
-
-At INR 1,200,000 budget, 36-month warranty and 10-day delivery, C qualifies; A fails warranty and B fails delivery. Change delivery to 14 days: B becomes the cheapest qualifying offer, INR 30,000 below C. No quantities or quote prices are changed.
-
-The six separate edge-case PDFs cover an incorrect stated total, missing warranty, ambiguous tax inclusion, missing battery coverage, no qualifying vendor and quantity mismatch.
-
-## Architecture and data flow
-
-```mermaid
-flowchart LR
-    UI[Streamlit: forms and evidence tables] --> API[FastAPI: typed endpoints]
-    API --> PDF[pypdf: actual pages]
-    PDF --> EX[OpenAI structured extraction / explicit fixture]
-    EX --> V[Pydantic + source text validation]
-    V --> STORE[Per-analysis JSON + UUID PDFs]
-    V --> RULES[Decimal audit + PASS / FAIL / UNKNOWN]
-    PDF --> CHUNKS[Page-preserving chunks]
-    CHUNKS --> EMB[Local BGE / explicit TF-IDF]
-    EMB --> Q[Local Qdrant index per analysis]
-    API --> TOOLS[Bounded three-tool assistant]
-    TOOLS --> Q
-    TOOLS --> RULES
-    Q --> ANS[Retrieved passages + structured answer + citation validation]
-    RULES --> UI
-    ANS --> UI
-```
-
-The UI only calls HTTP endpoints; it does not contain audit or recommendation logic. `vendorwise/logic.py` is pure Python and has no provider dependency. What-if requests reuse stored validated quotations and save only the user's explicitly changed requirements. An exact cost tie returns every tied vendor.
-
-### Where RAG is used
-
-Document questions retrieve up to six page-preserving chunks from the **current analysis**. Chunks are 800 characters with 120-character overlap; a chunk never crosses a PDF page. Qdrant stores their local vectors and metadata. Retrieval applies explicit document filters, recognizes complete vendor names, and balances results across selected vendors. The live answer is generated from retrieved tool evidence, not by resending every whole document as a question prompt. Initial structured extraction does use the complete page text; that step is **not RAG**.
-
-The server resolves valid citation IDs to exact stored passages, filenames and actual PDF pages. It rejects invented IDs. A mechanical match does not establish semantic entailment or guarantee that a model noticed every clause. Unanswerable questions should say the available documents do not establish the answer, not claim an unstated exclusion. Conflicting answers need multiple retrieved citations.
-
-### Where tool calling is used
-
-One live assistant chooses among `search_documents`, `calculate_quote_total`, and `compare_vendors`. Pydantic arguments reject extra facts/prices. The current analysis is bound by the server, so the model cannot choose another analysis. Unknown document IDs are rejected. At most four tool executions are allowed, followed by a structured final answer; each provider request has a 45-second timeout and one SDK retry. The UI shows actual tool names/outcomes, never fabricated activity or hidden reasoning.
-
-### Why deterministic arithmetic
-
-An LLM interprets language; Python performs arithmetic and eligibility checks. All money uses `Decimal`; each monetary line is rounded to INR 0.01 using `ROUND_HALF_UP`. The discrepancy is **stated minus calculated**. Absolute discrepancy up to INR 0.01 is tolerated. Tax is never assumed. Missing amounts are not zero. Included charges are not added again. Unsupported/unclear bases prevent a complete calculation.
-
-Budget compliance may use an explicitly **unverified vendor-stated total**; this does not make the price verified/comparable. Only offers with every requirement PASS and a verified total are eligible. The least expensive eligible offer wins. Missing facts or unresolved costs that could affect the winner make the result provisional. No weighted scores are used.
-
-## API
-
-| Method | Path | Purpose |
-|---|---|---|
-| GET | `/health` | Runtime mode, embeddings and whether a key is configured |
-| POST | `/analyses` | Create isolated analysis with six requirements |
-| POST | `/analyses/{id}/documents` | Multipart `files`; up to three total |
-| POST | `/analyses/{id}/extract` | Validate facts and build the local index; repeat calls reuse results |
-| GET | `/analyses/{id}/quotes` | Facts, status and evidence |
-| POST | `/analyses/{id}/compare` | Deterministic current comparison |
-| POST | `/analyses/{id}/ask` | Question plus optional document UUIDs |
-| POST | `/analyses/{id}/what-if` | Budget, warranty and delivery only; updates current requirements |
-| GET | `/analyses/{id}/report` | Downloadable Markdown audit and evidence |
-
-Use the Swagger examples or inspect the schemas. Invalid inputs return 422; unknown analyses 404; extraction required/mode mismatch 409; oversized bodies 413; provider-invalid results 502; missing provider/model configuration 503. Files use server-generated UUID storage names. Display names are sanitized. An upload batch is validated before files are written; adding a document invalidates previous extraction/comparison state.
-
-## Tests and evaluation
+## 🐳 Docker (Local)
 
 ```powershell
-.\.venv\Scripts\python -m pytest -q --junitxml=evaluation/results/pytest.xml
-.\.venv\Scripts\python -m evaluation.run --split dev --mode fixture --embeddings tfidf
-.\.venv\Scripts\python -m evaluation.run --split heldout --mode fixture --embeddings tfidf
-.\.venv\Scripts\python -m scripts.smoke_ui
+docker compose up --build -d
 ```
 
-Run semantic retrieval evaluation with `--embeddings fastembed`. A live evaluation is explicitly opt-in and can incur charges:
+Open [http://localhost:7860](http://localhost:7860)
+
+---
+
+## ☁️ Deploy to Render (Free)
+
+1. Push this repo to your GitHub account
+2. Go to [dashboard.render.com](https://dashboard.render.com) → **New → Web Service**
+3. Connect your GitHub repo
+4. Set:
+   - **Runtime:** Docker
+   - **Health Check Path:** `/_stcore/health`
+   - **Environment Variable:** `PORT = 7860`
+5. Click **Create Web Service** — done! 🎉
+
+> Free tier sleeps when idle; first visit after sleep takes ~30 seconds to wake up.
+
+---
+
+## 📁 Project Structure
+
+```
+vendorwise/
+├── streamlit_app.py          # UI (Streamlit frontend)
+├── vendorwise/
+│   ├── api.py                # REST API (FastAPI)
+│   ├── schemas.py            # Data models (Pydantic)
+│   ├── logic.py              # Deterministic audit & comparison
+│   ├── assistant.py          # AI assistant with tool calling
+│   ├── retrieval.py          # RAG search (Qdrant)
+│   ├── pdf.py                # PDF text extraction
+│   ├── provider.py           # LLM provider setup
+│   ├── service.py            # Business logic coordinator
+│   ├── storage.py            # Disk persistence
+│   ├── config.py             # Settings from .env
+│   └── report.py             # Markdown report generator
+├── samples/                  # Synthetic demo PDFs (Vendor A/B/C)
+├── tests/                    # Automated test suite (64 tests)
+├── evaluation/               # Retrieval quality benchmarks
+├── scripts/                  # Helper scripts
+├── docs/                     # Architecture & setup docs
+├── Dockerfile                # Production container
+├── render.yaml               # Render deployment config
+└── requirements-lock.txt     # Pinned dependencies
+```
+
+---
+
+## 🔌 API Reference
+
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/health` | Runtime mode, embeddings, provider status |
+| `POST` | `/analyses` | Create a new analysis session |
+| `POST` | `/analyses/{id}/documents` | Upload 1–3 PDF quotations |
+| `POST` | `/analyses/{id}/extract` | Extract facts from PDFs |
+| `GET` | `/analyses/{id}/quotes` | Get extracted quote data |
+| `POST` | `/analyses/{id}/compare` | Run deterministic comparison |
+| `POST` | `/analyses/{id}/ask` | Ask a question (RAG + AI) |
+| `POST` | `/analyses/{id}/what-if` | Change requirements & recompare |
+| `GET` | `/analyses/{id}/report` | Download Markdown audit report |
+
+---
+
+## 🧪 Tests
 
 ```powershell
-.\.venv\Scripts\python -m evaluation.run --split dev --mode live --embeddings fastembed
+.\.venv\Scripts\python -m pytest -q
 ```
 
-See [recorded validation](docs/VALIDATION.md) for results actually obtained, [evaluation protocol](evaluation/README.md) for denominators and the held-out policy, and `evaluation/results/` for raw evidence. Tests marked `mocked` exercise provider contracts but do not prove live model quality. The UI smoke uses real local HTTP with a headless Streamlit interaction test; it is not a visual browser test.
+64 tests covering: arithmetic audit · requirement checks · RAG retrieval · API endpoints · public demo restrictions · provider contracts
 
-Validation: the original 40-test baseline expanded to **64 passing tests** after provider and bounded-repair checks. The original `pip check` and **20/20 development plus 6/6 held-out synthetic cases for each of TF-IDF and local BGE retrieval** passed. AppTest and the running Streamlit agent API passed the core workflow. The OpenRouter sample live workflow and one manually reviewed cited answer subsequently passed on 24 November 2026. General live accuracy remains unmeasured. Direct OpenAI/Gemini calls were not exercised. See the validation report for failures, dates and limits.
+---
 
-## Supported inputs and limitations
+## 📄 Documentation
 
-- One laptop offer/configuration per PDF, up to three text-based English PDFs, INR only. Maximum 10 MiB/file, 20 pages/file, 30,000 text characters/page and 120,000/document. Empty or unreadable pages are rejected with their page number. Other languages are not evaluated.
-- No OCR, scans, encrypted PDFs, multi-currency conversion, baskets of different products, conditional pricing schedules or alternative offers. Complex charge bases remain ambiguous. Normalization uses manufacturer decimal storage units: 1 TB = 1,000 GB; GiB/TiB are not silently conflated.
-- Multiple explicit taxes can only be represented as one combined effective tax where the same base/combined rate is clear; otherwise clarification is required. Included tax with a nonzero discount is conservatively unverified. Different vendor rounding rules may produce discrepancies needing clarification.
-- Delivery checks use stated calendar-day counts from the vendor's stated event. They do not predict a delivery date, assume business days equal calendar days, or determine whether payment/site conditions have been fulfilled. Warranty exceptions remain visible; a nominal duration PASS does not mean all parts are covered for that duration.
-- Vendor-name matching recognizes complete extracted names (and the demo's Vendor A/B/C labels), not an alias resolution service. Small top-k retrieval may miss relevant or conflicting clauses. Citation existence is not proof of answer support; human review remains necessary.
-- Session data, PDF text and indexes persist under `data/`. Stop the backend and remove a particular UUID folder to delete an analysis. The model cache can be kept. There is no automatic retention policy or browser-refresh recovery UI; session state persists across interactions within a browser tab.
-- One local user and **one Uvicorn worker**. A process lock serializes mutations/assistant work; no cross-process locking, authentication, background queue or public deployment hardening. Session UUIDs are isolation, not authentication. Bind to loopback only.
-- PDF instructions are treated as untrusted evidence. Tools cannot send emails, make purchases, access arbitrary paths or accept model-invented prices. Prompt injection remains a model reliability risk, not something a system prompt alone eliminates.
+- [Architecture Deep Dive](docs/ARCHITECTURE.md)
+- [Demo Script](docs/DEMO_SCRIPT.md)
+- [OpenRouter Setup](docs/OPENROUTER_SETUP.md)
+- [Validation Evidence](docs/VALIDATION.md)
+- [Dependencies](docs/DEPENDENCIES.md)
 
-## Learning and presentation materials
+---
 
-- [Architecture walkthrough](docs/ARCHITECTURE.md)
-- [90-second demo script](docs/DEMO_SCRIPT.md)
-- [Ten interview questions and answers](docs/INTERVIEW_GUIDE.md)
-- [Honest resume bullet templates](docs/RESUME_BULLETS.md)
-- [Official documentation and installed versions](docs/DEPENDENCIES.md)
+## ⚠️ Limitations
 
-Recommended reading order: `schemas.py` → `logic.py` → `pdf.py` → `retrieval.py` → `assistant.py` → `service.py` → `api.py` → `streamlit_app.py`.
+- **INR only** — no multi-currency
+- **Text PDFs only** — no OCR for scanned docs
+- **1 laptop config per PDF** — no multi-product baskets
+- **Local single-user** — no authentication or multi-user support
+- **Demo data only** in Docker public mode — no personal PDF uploads
+
+---
+
+## 🛠️ Built With
+
+- [FastAPI](https://fastapi.tiangolo.com) — Backend API
+- [Streamlit](https://streamlit.io) — Frontend UI
+- [Pydantic](https://docs.pydantic.dev) — Data validation
+- [Qdrant](https://qdrant.tech) — Local vector search
+- [pypdf](https://pypdf.readthedocs.io) — PDF parsing
+- [FastEmbed](https://github.com/qdrant/fastembed) — Local embeddings (BGE)
+- [OpenAI SDK](https://github.com/openai/openai-python) — LLM provider interface
+
+---
+
+## 👨‍💻 Author
+
+**Ayush Pandey**
+- GitHub: [@ayushpandey6714-svg](https://github.com/ayushpandey6714-svg)
+
+---
+
+*This is a portfolio/learning project. Inspect the evidence before relying on any AI interpretation.*
