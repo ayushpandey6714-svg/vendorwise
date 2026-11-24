@@ -63,16 +63,16 @@ def display_comparison(result):
 
 
 st.title("VendorWise")
-st.caption("AI quotation auditor and comparison assistant · Laptops · INR · Up to 3 PDFs")
+st.caption("AI quotation auditor and comparison assistant · Laptops · INR · Up to 5 PDFs")
 health = api("GET", "/health")
 public_demo = bool(health and health.get("public_demo"))
 if health:
     with st.sidebar:
-        st.subheader("Runtime")
+        st.subheader("⚙️ Runtime")
         st.write(f"Mode: **{health['mode']}**")
-        st.write(f"Local embeddings: **{health['embedding_backend']}**")
-        st.caption("Public sample demo. Analyses are temporary; no personal documents." if public_demo else
-                   "Single-user local app. Session IDs are not authentication.")
+        st.write(f"Embeddings: **{health['embedding_backend']}**")
+        st.caption("Upload your own vendor PDFs (up to 5). Session data is temporary." if not public_demo else
+                   "Public demo — synthetic sample PDFs only. No personal uploads.")
         if st.session_state.analysis_id:
             st.code(st.session_state.analysis_id, language=None)
         if st.button("New analysis", key="reset"):
