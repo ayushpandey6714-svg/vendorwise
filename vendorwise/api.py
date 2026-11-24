@@ -57,8 +57,8 @@ def create_app(settings: Settings | None = None):
     @app.post("/analyses/{analysis_id}/documents", response_model=list[Document], status_code=201)
     async def upload(analysis_id: UUID, files: list[UploadFile] = File(...)):
         try:
-            if not 1 <= len(files) <= 3:
-                raise VendorWiseError("Upload one to three PDFs.")
+            if not 1 <= len(files) <= 5:
+                raise VendorWiseError("Upload one to five PDFs.")
             uploads = []
             for file in files:
                 data = await file.read(service.settings.max_upload_bytes + 1)

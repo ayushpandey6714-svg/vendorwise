@@ -101,12 +101,12 @@ with st.container(border=True):
             st.info("This public demo uses the three synthetic quotations from Vendors A, B and C. Personal uploads are disabled. Change the requirements to try different outcomes.")
         else:
             uploads = st.file_uploader("Text-based quotation PDFs", type=["pdf"], accept_multiple_files=True,
-                                       help="Up to three files, 10 MiB and 20 pages each. Scans and multiple offers per PDF are unsupported.")
+                                       help="Up to five files, 10 MiB and 20 pages each. Scans and multiple offers per PDF are unsupported.")
             use_samples = st.checkbox("Use the three synthetic demo PDFs (A, B and C)", value=False, key="use_samples")
         submitted = st.form_submit_button("Create analysis and extract", type="primary", disabled=not health, key="create_analysis")
     if submitted:
-        if not use_samples and not 1 <= len(uploads) <= 3:
-            st.error("Choose one to three PDFs, or select the synthetic demo.")
+        if not use_samples and not 1 <= len(uploads) <= 5:
+            st.error("Choose one to five PDFs, or select the synthetic demo.")
         else:
             req = {"quantity": quantity, "budget": str(budget), "min_ram_gb": ram,
                    "min_storage_gb": storage, "min_warranty_months": warranty,
