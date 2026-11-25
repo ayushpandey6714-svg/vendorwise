@@ -86,6 +86,18 @@ flowchart TD
 
 ---
 
+## 🛠️ Tech Stack
+
+| Layer | Technologies Used |
+|---|---|
+| **AI & RAG Pipeline** | **RAG** (Page-Preserving Chunking), **Tool-Calling Agent**, OpenRouter / Google Gemini / OpenAI |
+| **Embeddings & Vector DB** | **Qdrant** Vector Database, **FastEmbed (`BAAI/bge-small-en-v1.5`)**, **TF-IDF (`scikit-learn`)** |
+| **Backend & Validation** | **FastAPI**, **Uvicorn**, **Pydantic v2**, Python `Decimal` (Zero-Hallucination Math), `pypdf` |
+| **Frontend UI** | **Streamlit** (Custom Dark Theme), `httpx` |
+| **DevOps & Testing** | **Docker**, **Render Cloud**, **GitHub Actions CI**, **Pytest** (64 tests) |
+
+---
+
 ## 🚀 Quick Start Guide
 
 ### Option 1: Local Development (Windows / Linux / macOS)
