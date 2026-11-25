@@ -119,36 +119,7 @@ Open your browser at **[http://localhost:8501](http://localhost:8501)**.
 
 ---
 
-### Option 2: Live AI Mode (Real LLM Extraction & Q&A)
-
-Copy `.env.example` to `.env` and set your preferred provider:
-
-```dotenv
-# General Settings
-VENDORWISE_MODE=live
-VENDORWISE_PUBLIC_DEMO=false
-EMBEDDING_BACKEND=tfidf
-
-# Choose Provider: openrouter | gemini | openai
-LLM_PROVIDER=openrouter
-OPENROUTER_API_KEY=sk-or-v1-your-key-here
-OPENROUTER_MODEL=openrouter/free
-
-# Or Google Gemini:
-# LLM_PROVIDER=gemini
-# GEMINI_API_KEY=your-gemini-key
-# GEMINI_MODEL=gemini-2.0-flash-lite
-```
-
-Start the application with live settings:
-```powershell
-.\start_backend.ps1 -Mode live -Embeddings tfidf
-.\start_frontend.ps1
-```
-
----
-
-### Option 3: Docker Deployment
+### Option 2: Docker Deployment
 
 Run both backend and frontend isolated in a single Docker container:
 
