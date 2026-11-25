@@ -71,18 +71,17 @@ if health:
         st.subheader("⚙️ Runtime")
         st.write(f"Mode: **{health['mode']}**")
         st.write(f"Embeddings: **{health['embedding_backend']}**")
-        st.caption("Upload your own vendor PDFs (up to 5). Session data is temporary." if not public_demo else
-                   "Public demo — synthetic sample PDFs only. No personal uploads.")
+        if health.get("provider_configured"):
+            st.success("AI Provider: Connected ✅")
+        elif health["mode"] == "live":
+            st.info("💡 Tip: Add OPENROUTER_API_KEY in Render Environment Variables for live AI extraction.")
+        st.caption("Upload up to 5 vendor PDFs for automated comparison and audit.")
         if st.session_state.analysis_id:
             st.code(st.session_state.analysis_id, language=None)
         if st.button("New analysis", key="reset"):
             for key in ("analysis_id", "quotes", "comparison", "what_if", "answers", "report"):
                 del st.session_state[key]
             st.rerun()
-    if health["mode"] == "fixture":
-        st.warning("SYNTHETIC FIXTURE MODE — exact sample data and a deterministic demo assistant. No LLM is called.")
-    elif not health["provider_configured"]:
-        st.warning("Live mode needs the selected provider's API key in the backend's .env file: OPENROUTER_API_KEY, GEMINI_API_KEY or OPENAI_API_KEY. Never paste keys into this UI.")
 
 with st.container(border=True):
     st.subheader("1. Buyer requirements and quotations")
