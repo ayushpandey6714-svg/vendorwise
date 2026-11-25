@@ -14,7 +14,7 @@ jobs:
       - name: Build Linux image
         run: docker build -t vendorwise-check .
       - name: Run sample demo
-        run: docker run -d --name vendorwise-check -p 127.0.0.1:7860:7860 vendorwise-check
+        run: docker run -d --name vendorwise-check -e VENDORWISE_MODE=fixture -e VENDORWISE_PUBLIC_DEMO=true -p 127.0.0.1:7860:7860 vendorwise-check
       - name: Wait for frontend
         shell: bash
         run: |
