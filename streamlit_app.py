@@ -95,14 +95,9 @@ with st.container(border=True):
         storage = col2.number_input("Minimum storage (GB)", min_value=1, max_value=100000, value=512)
         warranty = col3.number_input("Minimum warranty (months)", min_value=0, max_value=120, value=36)
         delivery = col3.number_input("Maximum delivery (calendar days)", min_value=1, max_value=730, value=10)
-        if public_demo:
-            uploads = []
-            use_samples = True
-            st.info("This public demo uses the three synthetic quotations from Vendors A, B and C. Personal uploads are disabled. Change the requirements to try different outcomes.")
-        else:
-            uploads = st.file_uploader("Text-based quotation PDFs", type=["pdf"], accept_multiple_files=True,
-                                       help="Up to five files, 10 MiB and 20 pages each. Scans and multiple offers per PDF are unsupported.")
-            use_samples = st.checkbox("Use the three synthetic demo PDFs (A, B and C)", value=False, key="use_samples")
+        uploads = st.file_uploader("Upload Quotation PDFs (1 to 5)", type=["pdf"], accept_multiple_files=True,
+                                   help="Upload 1 to 5 text-based quotation PDFs. (10 MiB, 20 pages max per PDF)")
+        use_samples = st.checkbox("Or use the 3 synthetic demo PDFs (Vendor A, B, and C)", value=False, key="use_samples")
         submitted = st.form_submit_button("Create analysis and extract", type="primary", disabled=not health, key="create_analysis")
     if submitted:
         if not use_samples and not 1 <= len(uploads) <= 5:

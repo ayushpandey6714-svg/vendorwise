@@ -39,8 +39,6 @@ class Settings:
         }
         default_model, base_url = defaults[provider]
         public_demo = os.getenv("VENDORWISE_PUBLIC_DEMO", "false").lower() == "true"
-        if public_demo and mode != "fixture":
-            raise ValueError("Public sample demo must use fixture mode; live paid API access is not exposed.")
         if mode not in ("live", "fixture") or backend not in ("fastembed", "tfidf"):
             raise ValueError("VENDORWISE_MODE must be live/fixture; EMBEDDING_BACKEND must be fastembed/tfidf")
         return cls(data_dir=Path(os.getenv("VENDORWISE_DATA_DIR", str(ROOT / "data"))).resolve(),
