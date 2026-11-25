@@ -41,7 +41,7 @@ Experience VendorWise live in your browser:
 
 👉 **[https://vendorwise.onrender.com](https://vendorwise.onrender.com)** 👈
 
-*(Hosted on Render Free Tier with Dark Mode and interactive quote auditing enabled)*
+
 
 ---
 
