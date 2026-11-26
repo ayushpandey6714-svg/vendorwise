@@ -115,7 +115,7 @@ def chat_answer(question: str, runner: ToolRunner, provider) -> AnswerDraft:
     calls_used = 0
     try:
         for _ in range(provider.settings.max_tool_calls):
-            response = provider.client.chat.completions.create(model=provider.settings.model,
+            response = provider.call(provider.client.chat.completions.create, model=provider.settings.model,
                 messages=messages, tools=tools, tool_choice="required" if calls_used == 0 else "auto",
                 max_tokens=4000, extra_body=provider.chat_options)
             if not response.choices:
@@ -140,7 +140,7 @@ def chat_answer(question: str, runner: ToolRunner, provider) -> AnswerDraft:
                     runner.activity.append(Activity(tool=name, outcome="Rejected: " + str(exc)))
                 messages.append({"role": "tool", "tool_call_id": call.id, "content": json.dumps(result)})
         messages[0]["content"] = SYSTEM + " Return a concise final answer with citation IDs. No more tools are available."
-        completion = provider.client.chat.completions.parse(model=provider.settings.model,
+        completion = provider.call(provider.client.chat.completions.parse, model=provider.settings.model,
             messages=messages, response_format=AnswerDraft, max_tokens=4000,
             extra_body=provider.chat_options)
         draft = completion.choices[0].message.parsed if completion.choices else None
@@ -177,7 +177,7 @@ def ask(analysis, request: AskRequest, index, provider) -> Answer:
         calls_used = 0
         try:
             for _ in range(provider.settings.max_tool_calls):
-                response = provider.client.responses.create(model=provider.settings.model,
+                response = provider.call(provider.client.responses.create, model=provider.settings.model,
                     instructions=SYSTEM, input=transcript, tools=tools,
                     tool_choice="required" if calls_used == 0 else "auto",
                     parallel_tool_calls=False, max_output_tokens=2500, store=False)
@@ -196,7 +196,7 @@ def ask(analysis, request: AskRequest, index, provider) -> Answer:
                         runner.activity.append(Activity(tool=call.name, outcome="Rejected: " + str(exc)))
                     transcript.append({"type": "function_call_output", "call_id": call.call_id,
                                        "output": json.dumps(result)})
-            response = provider.client.responses.parse(model=provider.settings.model,
+            response = provider.call(provider.client.responses.parse, model=provider.settings.model,
                 instructions=SYSTEM + " Return a concise final answer with citation IDs. No more tools are available.",
                 input=transcript, text_format=AnswerDraft, max_output_tokens=2500, store=False)
             draft = response.output_parsed

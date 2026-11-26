@@ -106,6 +106,9 @@ def test_gemini_bound_tools_and_preserve_signatures(client, ready_analysis):
     result = ask(analysis, AskRequest(question="Audit Vendor C total"), service.index(analysis), provider)
     assert len(result.activity) == provider.settings.max_tool_calls
     assert len(seen) == provider.settings.max_tool_calls + 1
+    import sqlite3
+    with sqlite3.connect(provider.budget.path) as db:
+        assert db.execute("SELECT COUNT(*) FROM requests").fetchone()[0] == len(seen)
     assert str(result.calculations[0].calculated_total) == "1190000.00"
     assert seen[0]["tool_choice"] == "required"
     assistant = next(m for m in seen[-1]["messages"] if m["role"] == "assistant")

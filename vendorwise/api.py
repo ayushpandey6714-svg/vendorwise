@@ -16,27 +16,28 @@ from .service import Service
 def create_app(settings: Settings | None = None):
     service = Service(settings or Settings.from_env())
     app = FastAPI(title="VendorWise", version="1.0.0",
-                  description="Local single-user laptop quotation auditor. INR only; no authentication.")
+                  description="Laptop quotation auditor. INR only. Shared request budgets; no user authentication.")
     app.state.service = service
 
     @app.exception_handler(VendorWiseError)
     async def vendor_error(request, exc):
-        return JSONResponse(status_code=exc.status_code, content={"detail": str(exc)})
+        headers = {"Retry-After": str(exc.retry_after)} if exc.retry_after is not None else None
+        return JSONResponse(status_code=exc.status_code, content={"detail": str(exc)}, headers=headers)
 
     @app.middleware("http")
     async def upload_limit(request, call_next):
         # Reject oversize bodies even without Content-Length. Multipart parsing itself
         # happens before the endpoint, so endpoint-only limits are insufficient.
-        limit = 31 * 1024 * 1024
+        limit = service.settings.max_request_bytes
         if request.method == "POST":
             length = request.headers.get("content-length")
             if length and (not length.isdigit() or int(length) > limit):
-                return JSONResponse(status_code=413, content={"detail": "Request body exceeds 31 MiB or has invalid length."})
+                return JSONResponse(status_code=413, content={"detail": f"Request body exceeds {limit} bytes or has invalid length."})
             body = bytearray()
             async for chunk in request.stream():
                 body.extend(chunk)
                 if len(body) > limit:
-                    return JSONResponse(status_code=413, content={"detail": "Request body exceeds 31 MiB."})
+                    return JSONResponse(status_code=413, content={"detail": f"Request body exceeds {limit} bytes."})
             request._body = bytes(body)
         return await call_next(request)
 
@@ -44,20 +45,22 @@ def create_app(settings: Settings | None = None):
     def health():
         s = service.settings
         return Health(status="ok", mode=s.mode, embedding_backend=s.embedding_backend,
-                      provider_configured=bool(s.api_key and not s.api_key.startswith("your-")), public_demo=s.public_demo)
+                      provider_configured=bool(s.api_key and not s.api_key.startswith("your-")), public_demo=s.public_demo,
+                      ai_requests_per_minute=s.ai_requests_per_minute, ai_requests_per_day=s.ai_requests_per_day)
 
     @app.post("/analyses", response_model=AnalysisSummary, status_code=201)
     def create(requirements: Requirements):
         with service.repo.lock:
-            if service.settings.public_demo and len(list(service.repo.root.glob("*/analysis.json"))) >= service.settings.max_demo_analyses:
-                raise VendorWiseError("The shared sample demo has reached its session limit. The owner needs to restart it with fresh temporary storage.", 503)
+            limit = service.settings.max_demo_analyses if service.settings.public_demo else service.settings.max_analyses
+            if len(list(service.repo.root.glob("*/analysis.json"))) >= limit:
+                raise VendorWiseError("Analysis storage is full. Existing analyses still work. The owner must clear expired data before new analyses can be created.", 503)
             a = service.repo.create(requirements, service.settings.mode, service.settings.embedding_backend)
         return AnalysisSummary(**a.model_dump(exclude={"quotes"}))
 
     @app.post("/analyses/{analysis_id}/documents", response_model=list[Document], status_code=201)
     async def upload(analysis_id: UUID, files: list[UploadFile] = File(...)):
         try:
-            if not 1 <= len(files) <= 5:
+            if not 1 <= len(files) <= service.settings.max_documents:
                 raise VendorWiseError("Upload one to five PDFs.")
             uploads = []
             for file in files:

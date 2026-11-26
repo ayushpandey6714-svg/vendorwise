@@ -32,6 +32,8 @@ Streamlit handles forms, tables and session state. FastAPI owns validation and l
 
 Configuration comes from environment variables and a local `.env`; keys stay in the backend. The UI can observe only a configured/not-configured flag. Nothing sends email, buys a product or deploys services.
 
+Every outbound model request passes through `Provider.call`, which atomically reserves a slot in a SQLite rolling-minute and rolling-24-hour budget. Failed calls and explicit schema-repair attempts count too; SDK automatic retries are disabled. Budgets are shared across visitors and persist as long as the data directory does. They are not authentication or monetary limits. Separate sample-only mode rejects arbitrary uploads before parsing. Live mode preserves uploads with a bounded analysis count.
+
 ## 6. What to improve after the current scope
 
 Collect permissioned, diverse quotations and independent field labels; measure live extraction and answer support before changing prompts. Add clause-level conflict checks and field review/edit workflows if evidence justifies them. Benchmark chunk sizes on the development subset, then evaluate new unseen cases. Avoid adding agents or weighted rankings merely to increase the feature count.

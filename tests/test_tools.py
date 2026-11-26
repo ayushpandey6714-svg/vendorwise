@@ -85,10 +85,16 @@ def test_bounded_loop_actual_tools_and_invalid_citation(client, ready_analysis):
                 arguments='{"document_id":"' + quotes[2]["document_id"] + '"}', call_id=f"c{len(calls)}")])
         def parse(self, **kwargs):
             return SimpleNamespace(output_parsed=AnswerDraft(answer="CALCULATION: see audit", citation_ids=[], evidence_absent=False, conflict=False))
-    provider = SimpleNamespace(client=SimpleNamespace(responses=Responses()), settings=service.settings)
+    from vendorwise.provider import Provider
+    from dataclasses import replace
+    provider = Provider(replace(service.settings, api_key="test-key"))
+    provider._client = SimpleNamespace(responses=Responses())
     result = ask(a, AskRequest(question="Audit Vendor C total"), service.index(a), provider)
     assert len(calls) == service.settings.max_tool_calls
     assert len(result.activity) == len(calls)
+    import sqlite3
+    with sqlite3.connect(provider.budget.path) as db:
+        assert db.execute("SELECT COUNT(*) FROM requests").fetchone()[0] == len(calls) + 1
     assert all(x.tool == "calculate_quote_total" for x in result.activity)
 
 

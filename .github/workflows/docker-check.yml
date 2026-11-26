@@ -1,4 +1,4 @@
-name: Docker demo check
+name: Tests and Docker check
 on:
   push:
   pull_request:
@@ -6,7 +6,25 @@ on:
 permissions:
   contents: read
 jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          cache: pip
+      - name: Install test dependencies
+        run: python -m pip install -r requirements-lock.txt
+      - name: Check dependencies
+        run: python -m pip check
+      - name: Run the complete test suite
+        run: python -m pytest -q
+      - name: Check types
+        run: ty check vendorwise streamlit_app.py scripts
   docker-demo:
+    needs: tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

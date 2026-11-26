@@ -23,6 +23,15 @@ class Settings:
     max_tool_calls: int = 4
     public_demo: bool = False
     max_demo_analyses: int = 200
+    max_analyses: int = 50
+    max_documents: int = 5
+    ai_requests_per_minute: int = 20
+    ai_requests_per_day: int = 100
+
+    @property
+    def max_request_bytes(self):
+        # Allow every advertised file plus bounded multipart framing overhead.
+        return self.max_documents * self.max_upload_bytes + 1024 * 1024
 
     @classmethod
     def from_env(cls):
@@ -39,6 +48,8 @@ class Settings:
         }
         default_model, base_url = defaults[provider]
         public_demo = os.getenv("VENDORWISE_PUBLIC_DEMO", "false").lower() == "true"
+        if public_demo and mode != "fixture":
+            raise ValueError("Public sample demo must use fixture mode. Use public_demo=false for live uploads.")
         if mode not in ("live", "fixture") or backend not in ("fastembed", "tfidf"):
             raise ValueError("VENDORWISE_MODE must be live/fixture; EMBEDDING_BACKEND must be fastembed/tfidf")
         return cls(data_dir=Path(os.getenv("VENDORWISE_DATA_DIR", str(ROOT / "data"))).resolve(),
@@ -48,4 +59,14 @@ class Settings:
                    api_key=os.getenv(provider.upper() + "_API_KEY", "").strip(),
                    model=os.getenv(provider.upper() + "_MODEL", default_model),
                    base_url=base_url,
-                   public_demo=public_demo)
+                   public_demo=public_demo,
+                   max_analyses=positive_env("VENDORWISE_MAX_ANALYSES", 50),
+                   ai_requests_per_minute=positive_env("VENDORWISE_AI_REQUESTS_PER_MINUTE", 20),
+                   ai_requests_per_day=positive_env("VENDORWISE_AI_REQUESTS_PER_DAY", 100))
+
+
+def positive_env(name: str, default: int) -> int:
+    value = int(os.getenv(name, str(default)))
+    if value < 1:
+        raise ValueError(f"{name} must be a positive integer.")
+    return value

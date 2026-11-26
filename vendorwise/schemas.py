@@ -233,3 +233,5 @@ class Health(StrictModel):
     embedding_backend: str
     provider_configured: bool
     public_demo: bool = False
+    ai_requests_per_minute: int = 20
+    ai_requests_per_day: int = 100

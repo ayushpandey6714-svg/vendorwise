@@ -39,10 +39,10 @@ cd D:\VendorWise\vendorwise
 
 Open http://127.0.0.1:8501. Keep both windows open. Restart the backend after changing `.env`; existing shell environment variables take precedence. Create a new analysis in live mode, select the three synthetic PDFs, extract, inspect evidence and compare. Ask about Vendor B's battery terms and inspect citations. Change delivery from 10 to 14 days and inspect the recommendation. Live mode sends document text to OpenRouter and the routed provider; use synthetic samples for the first checks.
 
-## Completion checks still required
+## Deployment and verification
 
 - Completed locally on synthetic samples: real API extraction, cited battery answer, comparison, what-if and report. This is not a general accuracy measurement.
-- Docker image build/run; Docker was not installed during earlier checks.
-- Public hosting and a verified public URL. Existing Docker/Render configuration serves only a fixture sample demo; it does not expose unrestricted live API access. Public live AI needs access and quota controls.
+- GitHub Actions builds the Linux image and tests its fixture workflow. The full regression suite and type checker also run in CI.
+- The public URL is linked from the README. Render uses live mode; Compose defaults to the sample-only demo. See [deployment instructions](DEPLOYMENT.md) for secrets, shared AI request budgets and temporary storage behavior.
 
 Automated mocked tests are not proof of live model quality. A key alone does not make the app deployed or production-ready.

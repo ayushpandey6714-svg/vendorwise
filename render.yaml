@@ -17,3 +17,11 @@ services:
         value: openrouter
       - key: OPENROUTER_MODEL
         value: openrouter/free
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: VENDORWISE_AI_REQUESTS_PER_MINUTE
+        value: "20"
+      - key: VENDORWISE_AI_REQUESTS_PER_DAY
+        value: "100"
+      - key: VENDORWISE_MAX_ANALYSES
+        value: "50"

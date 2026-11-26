@@ -16,6 +16,8 @@ from .storage import Repository
 
 class Service:
     def __init__(self, settings):
+        if settings.public_demo and settings.mode != "fixture":
+            raise VendorWiseError("Public sample demo requires fixture mode.", 503)
         self.settings = settings
         self.repo = Repository(settings.data_dir)
         self.provider = Provider(settings)
@@ -33,13 +35,17 @@ class Service:
     def upload(self, analysis_id, uploads):
         with self.repo.lock:
             a = self.load(analysis_id)
-            if not uploads or len(a.documents) + len(uploads) > 5:
+            if not uploads or len(a.documents) + len(uploads) > self.settings.max_documents:
                 raise VendorWiseError("Upload between one and five PDFs per analysis.")
             staged = []
             hashes = {d.sha256 for d in a.documents}
             for filename, data in uploads:
                 if len(data) > self.settings.max_upload_bytes:
                     raise VendorWiseError("Each PDF must be 10 MiB or smaller.", 413)
+                if self.settings.public_demo:
+                    manifest = json.loads((ROOT / "samples" / "fixture_manifest.json").read_text(encoding="utf-8"))
+                    if hashlib.sha256(data).hexdigest() not in manifest:
+                        raise VendorWiseError("This public demo accepts only the supplied synthetic PDFs. Personal uploads are disabled.")
                 doc = read_pdf(data, filename, str(uuid4()), self.settings.max_pages)
                 if doc.sha256 in hashes:
                     raise VendorWiseError("Duplicate PDF in this analysis.")

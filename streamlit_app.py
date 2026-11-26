@@ -68,20 +68,26 @@ health = api("GET", "/health")
 public_demo = bool(health and health.get("public_demo"))
 if health:
     with st.sidebar:
-        st.subheader("⚙️ Runtime")
+        st.subheader("Runtime")
         st.write(f"Mode: **{health['mode']}**")
         st.write(f"Embeddings: **{health['embedding_backend']}**")
-        if health.get("provider_configured"):
-            st.success("AI Provider: Connected ✅")
-        elif health["mode"] == "live":
-            st.info("💡 Tip: Add OPENROUTER_API_KEY in Render Environment Variables for live AI extraction.")
-        st.caption("Upload up to 5 vendor PDFs for automated comparison and audit.")
+        if health["mode"] == "live":
+            if health.get("provider_configured"):
+                st.caption("AI credentials configured. Provider availability is checked when you submit.")
+            else:
+                st.warning("Live AI is not configured. The app owner needs to add the selected provider's API key.")
+            st.caption(f"Shared AI limits: {health.get('ai_requests_per_minute', 20)} requests per minute and "
+                       f"{health.get('ai_requests_per_day', 100)} per rolling 24 hours. One analysis or answer may use multiple requests.")
         if st.session_state.analysis_id:
             st.code(st.session_state.analysis_id, language=None)
         if st.button("New analysis", key="reset"):
             for key in ("analysis_id", "quotes", "comparison", "what_if", "answers", "report"):
                 del st.session_state[key]
             st.rerun()
+    if health["mode"] == "fixture":
+        st.info("Synthetic sample mode: no AI provider is called. Results use the supplied sample quotations.")
+    else:
+        st.info("Public portfolio demo: upload only non-confidential quotations. Extracted text is sent to the configured AI provider. Analyses are temporary; download your report before leaving.")
 
 with st.container(border=True):
     st.subheader("1. Buyer requirements and quotations")
@@ -94,10 +100,16 @@ with st.container(border=True):
         storage = col2.number_input("Minimum storage (GB)", min_value=1, max_value=100000, value=512)
         warranty = col3.number_input("Minimum warranty (months)", min_value=0, max_value=120, value=36)
         delivery = col3.number_input("Maximum delivery (calendar days)", min_value=1, max_value=730, value=10)
-        uploads = st.file_uploader("Upload Quotation PDFs (1 to 5)", type=["pdf"], accept_multiple_files=True,
-                                   help="Upload 1 to 5 text-based quotation PDFs. (10 MiB, 20 pages max per PDF)")
-        use_samples = st.checkbox("Or use the 3 synthetic demo PDFs (Vendor A, B, and C)", value=False, key="use_samples")
-        submitted = st.form_submit_button("Create analysis and extract", type="primary", disabled=not health, key="create_analysis")
+        if public_demo:
+            uploads = []
+            use_samples = True
+            st.info("This sample demo uses Vendors A, B and C. Personal uploads are disabled.")
+        else:
+            uploads = st.file_uploader("Upload quotation PDFs (1 to 5)", type=["pdf"], accept_multiple_files=True,
+                                       help="Up to 5 text-based PDFs, 10 MiB and 20 pages each. One INR laptop offer per PDF; scanned documents are unsupported.")
+            use_samples = st.checkbox("Use the 3 synthetic sample PDFs (Vendors A, B and C)", value=False, key="use_samples")
+        unavailable = not health or (health["mode"] == "live" and not health["provider_configured"])
+        submitted = st.form_submit_button("Create analysis and extract", type="primary", disabled=unavailable, key="create_analysis")
     if submitted:
         if not use_samples and not 1 <= len(uploads) <= 5:
             st.error("Choose one to five PDFs, or select the synthetic demo.")

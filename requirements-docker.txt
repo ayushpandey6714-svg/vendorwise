@@ -1,5 +1,5 @@
-# Small public sample-demo image. Direct versions match the tested local project.
-# Linux Docker build and its resolved transitive versions are not yet verified.
+# Small image with TF-IDF retrieval. Direct versions match the tested project.
+# GitHub Actions verifies the Linux build and a sample workflow on each push.
 # Semantic embeddings remain available in the full local requirements-lock.txt.
 fastapi==0.165.0
 uvicorn==0.54.0
