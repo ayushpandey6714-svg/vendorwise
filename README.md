@@ -11,7 +11,7 @@ A portfolio application that audits INR laptop quotations, checks buyer requirem
 
 <br/>
 
-[![Python 3.11+](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.14-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
+[![Python 3.14 tested](https://img.shields.io/badge/Python-3.14_tested-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.165-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.67-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![Qdrant](https://img.shields.io/badge/Vector_DB-Qdrant-DC244C?style=flat)](https://qdrant.tech)
@@ -27,7 +27,7 @@ A portfolio application that audits INR laptop quotations, checks buyer requirem
 When procurement teams buy hardware or services, comparing multiple vendor PDF quotes is tedious, error-prone, and slow. Hidden charges, misleading tax structures, mathematical discrepancies, and warranty caveats often slip past human review.
 
 **VendorWise** automates this end-to-end:
-1. **Upload up to 5 Quotation PDFs** simultaneously (or test instantly with built-in synthetic quotes).
+1. **Upload up to 5 quotation PDFs** together, or select the three built-in synthetic quotations. Live mode calls the AI provider even for sample PDFs; fixture mode uses predefined sample extractions.
 2. **Deterministic Arithmetic Audit**: Uses Python's `Decimal` arithmetic to check totals. Incorrectly interpreted source inputs can still produce incorrect conclusions; review the evidence.
 3. **Requirement Compliance Engine**: Checks strict constraints (Budget, RAM, SSD, Warranty, Delivery) returning structured `PASS`, `FAIL`, or `UNKNOWN` verdicts with exact citations.
 4. **Interactive "What-If" Matrix**: Change delivery deadlines or budget sliders to see which vendor becomes the new optimal winner in real time.
@@ -41,7 +41,23 @@ Experience VendorWise live in your browser:
 
 👉 **[https://vendorwise.onrender.com](https://vendorwise.onrender.com)** 👈
 
+### Try the sample workflow
 
+1. Select **Use the 3 synthetic sample PDFs (Vendors A, B and C)** and keep the default requirements.
+2. Click **Create analysis and extract** once. Live extraction can take several minutes; keep the page open while it runs.
+3. Expect **Vendor C**: Vendor A fails the warranty requirement and Vendor B fails the delivery deadline.
+4. Open **What if?**, change maximum delivery from **10 to 14 days**, and apply. Expect **Vendor B** and **INR 30,000 savings**.
+5. Ask **Does Vendor B include battery replacement?** in Document Q&A. Inspect the page-2 evidence: manufacturing defects are covered for 12 months.
+6. Return to Comparison, prepare the Markdown report, and download it.
+
+These expectations apply to the supplied synthetic samples. Review extracted facts and citations before using an answer to make a decision.
+
+| Mode | Documents | AI calls | Typical use |
+|---|---|---|---|
+| Live | Your supported quotations or the samples | Yes; provider key required | Demonstrating real extraction and generated answers |
+| Fixture | Exact supplied sample PDFs | None | Repeatable local demonstration and regression tests |
+
+One observed public live run took about **123 seconds** for three-PDF extraction/comparison, **2.5 seconds** for what-if, and **7 seconds** for Q&A. These are single-run observations, not a performance guarantee. Extraction is sequential and concurrent analyses share a backend lock. Provider response times and hosting startup can add delays. See [validation evidence](docs/VALIDATION.md).
 
 ---
 
@@ -102,6 +118,8 @@ flowchart TD
 
 ### Option 1: Local development (Windows PowerShell, Python 3.14)
 
+Use **Python 3.14** to reproduce the tested environment. Project metadata allows Python 3.12–3.14; the pinned dependencies require at least 3.12, and 3.12/3.13 have not been verified by this project's CI.
+
 #### 1. Clone the repository
 ```bash
 git clone https://github.com/ayushpandey6714-svg/vendorwise.git
@@ -128,6 +146,8 @@ $env:EMBEDDING_BACKEND = 'tfidf'
 ```
 
 Open your browser at **[http://localhost:8501](http://localhost:8501)**.
+
+Select the synthetic sample checkbox before submitting in fixture mode. Keep both terminals open. For live local setup, follow [OpenRouter setup](docs/OPENROUTER_SETUP.md); store your key in `.env`, never in GitHub.
 
 ---
 
@@ -202,6 +222,21 @@ CI runs the complete test suite and type checker before building the Linux image
 ```
 
 Mocked provider tests and fixture results are not live AI accuracy measurements. The Docker smoke check uses synthetic samples and requires no key. See [validation records](docs/VALIDATION.md).
+
+## Troubleshooting
+
+| Symptom | What to do |
+|---|---|
+| Live AI is not configured | Set the selected provider's API key in the backend environment, then restart or redeploy. |
+| Extraction takes several minutes | Wait for the current request; repeatedly creating analyses adds work. Try one PDF first. Use fixture mode for a repeatable demonstration without provider calls. |
+| HTTP 429 | Read the error: the app's shared request budget or the provider's quota was reached. Wait for the applicable reset; comparisons and reports on completed analyses do not call the model. |
+| HTTP 503 says analysis storage is full | Existing analyses remain available. The operator must clear expired analysis data as described in the deployment guide. |
+| Scanned, encrypted, or malformed PDF rejected | Export an unlocked text-based PDF containing one INR laptop offer. OCR is not implemented. |
+| Analysis disappears after hosting restart | Storage may be ephemeral. Start a new analysis and download reports you need to keep. |
+
+## Understand the project
+
+Read [the architecture guide](docs/ARCHITECTURE.md), then follow `streamlit_app.py` → `vendorwise/api.py` → `vendorwise/service.py`. Study `provider.py` and `schemas.py` for extraction, `logic.py` for arithmetic and comparison, and `retrieval.py` / `assistant.py` for document Q&A. Finish with `Dockerfile`, `scripts/serve_container.py`, and the CI workflow. The [demo script](docs/DEMO_SCRIPT.md) explains how to present the project accurately.
 
 ## Public demo limits
 

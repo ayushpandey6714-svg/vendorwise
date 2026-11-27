@@ -1,12 +1,16 @@
 # Validation actually performed
 
-## Current verification: 26 November 2026
+## Current verification: reviewed 27 November 2026
+
+- At application commit `2cadb7f6853fb967fa63c67aa3a0a728499d0859`, the public Render app passed a real live OpenRouter sample workflow: three-PDF extraction and comparison selected Vendor C; changing delivery to 14 days selected Vendor B with INR 30,000 savings; battery Q&A returned a claim supported by Vendor B's page-2 passage; report generation exposed the download button. The exported report file was not separately downloaded in that public UI check.
+- Observed intervals between completed UI snapshots were 123.17 seconds for extraction/comparison, 2.45 seconds for what-if, 7.14 seconds for Q&A, and 1.21 seconds for report generation. Q&A's backend-reported latency was 6,029.57 ms. These are one successful synthetic-sample run, not latency percentiles or a general model-quality evaluation.
+- [GitHub Actions run 45864681066](https://github.com/ayushpandey6714-svg/vendorwise/actions/runs/45864681066) passed the complete regression suite, dependency check, type check, Linux image build, and container fixture smoke workflow for that commit.
 
 - The fixes pass **76 automated tests** on Windows/Python 3.14, including real five-PDF uploads exceeding 31 MiB, chunked-body limits, fixture restrictions, live upload UI, rolling AI budgets across process instances, concurrent quota reservations, failed-call charging, and schema-repair limits.
 - `ty check --python <project-venv-python> vendorwise streamlit_app.py scripts` passes.
 - A running FastAPI + Streamlit agent-API check passed sample extraction, comparison, delivery what-if with INR 30,000 savings, and cited Q&A. Live-mode UI preserves uploads, displays shared limits, and disables submission without configured credentials. Both services logged no warnings or tracebacks during this check. These checks used fixture mode or no key, not live AI generation.
 - GitHub Actions now runs the complete tests and type checker before the Linux Docker build and sample smoke workflow. The workflow badge in the README is the current CI source of truth.
-- The existing public site and its Streamlit health endpoint responded with HTTP 200 during the review. The earlier Docker workflow succeeded at commit `9324c76`; consult the current workflow for the fixes' build status.
+- The public site and its Streamlit health endpoint responded with HTTP 200 during the review. The live workflow above verifies more than page availability; consult the CI badge for subsequent revisions.
 
 This is a portfolio demo with bounded usage, not a claim of production readiness or general AI accuracy. The following sections are historical development records; their deployment status and test counts describe their original dates.
 

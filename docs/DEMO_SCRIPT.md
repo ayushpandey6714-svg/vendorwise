@@ -4,7 +4,9 @@ Before starting: run the backend/frontend, choose the synthetic A/B/C demo, and 
 
 **0–15 seconds — problem and scope**
 
-“VendorWise helps a buyer compare laptop quotations using requirements, price arithmetic and source evidence. This demonstration uses clearly labelled synthetic PDFs. I am running fixture mode, which exercises the backend and retrieval without calling an LLM. The project also contains an OpenAI integration.”
+“VendorWise helps a buyer compare laptop quotations using requirements, price arithmetic and source evidence. This demonstration uses clearly labelled synthetic PDFs. I am running fixture mode, which exercises the backend and retrieval without calling an LLM. Live mode supports OpenRouter, Gemini and OpenAI; the public demo uses OpenRouter.”
+
+When presenting the public live app, replace the fixture-mode sentence with: “I am running live mode, so these sample PDFs are interpreted by the configured AI provider.” Complete extraction before starting the 90-second walkthrough; live extraction time is additional and can vary substantially.
 
 **15–35 seconds — compliance versus cost**
 
@@ -26,6 +28,6 @@ Ask “Does Vendor B include battery replacement?” Show the retrieved page 2 p
 
 **75–90 seconds — correctness and honest limits**
 
-“Money calculations use Decimal, not LLM arithmetic. Tests cover incomplete charges, discrepancies, session isolation and citation validation. I keep deterministic tests, fixture evaluations and live-model checks separate. This version supports small text-based INR laptop PDFs; scans and public multi-user deployment are outside scope.”
+“Money calculations use Decimal, not LLM arithmetic. Tests cover incomplete charges, discrepancies, document filtering, citation validation and shared request limits. I keep deterministic tests, fixture evaluations and live-model checks separate. The public portfolio demo is deployed with FastAPI and Streamlit in Docker. It supports up to five text-based INR laptop PDFs. OCR, authenticated accounts and production-scale operation are outside the current scope.”
 
 Optional follow-up: start a separate analysis with `incorrect_total.pdf` and open the INR 500 discrepancy requiring clarification. Download the Markdown evidence report.
